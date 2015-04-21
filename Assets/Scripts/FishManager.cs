@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class FishMangager : MonoBehaviour {
+public class FishManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () 
