@@ -75,11 +75,11 @@ public class RingManager : MonoBehaviour {
 					go.transform.localScale = xyS;
 				}
 
-				if (ringList [0].transform.localScale.x < 0.33f) {						//If ring is to smale destroy it
-					Destroy (ringList [0]);
+				if (ringList [0].transform.localScale.x < 0.33f) {						//If ring is to small destroy it
+					Destroy (ringList[0].transform.parent.gameObject);
 					ringList.RemoveAt (0);
 				}
-				if (ringList [ringList.Count - 1].transform.localScale.x < 1.3f) 		//If the lagest ring is at a specivic scale add a new big ring
+				if (ringList [ringList.Count - 1].transform.localScale.x < 1.3f) 		//If the lagest ring is at a specific scale add a new big ring
 				{
 					newRing ();
 				}
@@ -100,7 +100,9 @@ public class RingManager : MonoBehaviour {
 		GameObject toInstanciate = rings [0];
 		toInstanciate.transform.localScale = new Vector3(2f,2f,1f);
 		GameObject instance = Instantiate (toInstanciate, getRingZPosition(), Quaternion.identity) as GameObject;
-		instance.transform.SetParent (boardHolder);
+		Transform ringHome = new GameObject ("ringHome").transform;
+		instance.transform.SetParent (ringHome);
+		ringHome.transform.SetParent (boardHolder);
 		ringList.Add (instance);
 
 
