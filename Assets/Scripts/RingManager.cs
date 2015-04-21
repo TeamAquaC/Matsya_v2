@@ -79,7 +79,7 @@ public class RingManager : MonoBehaviour {
 					Destroy (ringList[0].transform.parent.gameObject);
 					ringList.RemoveAt (0);
 				}
-				if (ringList [ringList.Count - 1].transform.localScale.x < 1.3f) 		//If the lagest ring is at a specific scale add a new big ring
+				if (ringList [ringList.Count - 1].transform.localScale.x < 1.4f) 		//If the lagest ring is at a specific scale add a new big ring
 				{
 					newRing ();
 				}
@@ -90,7 +90,7 @@ public class RingManager : MonoBehaviour {
 
 	Vector3 getRingZPosition()
 	{
-		Vector3 vec = new Vector3 (0f,0f,-0.001f * -totalRingCount);
+		Vector3 vec = new Vector3 (0f,0f,-.001f * -totalRingCount);
 		totalRingCount += 1;
 		return vec;
 	}
