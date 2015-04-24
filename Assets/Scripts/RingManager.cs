@@ -6,7 +6,7 @@ using System.Linq;
 public class RingManager : MonoBehaviour {
 
 	public GameObject[] rings;
-	public float ringScaleSpeed = 500;
+	public float ringScaleSpeed = 0;
 	public float removeRingThreshold = 0.2f;
 	public float spawnNewRingThreshold = 2f;
 	private float fadeInThreshold = 1f;
@@ -52,7 +52,7 @@ public class RingManager : MonoBehaviour {
 			newRing ();
 		}
 		if(totalRingCount >=5 ){
-			ringScaleSpeed = 1500;
+			ringScaleSpeed = 0;
 		}
 
 			GameObject[] gos = GameObject.FindGameObjectsWithTag ("Ring");				//find all rings in game an add them to the list ringList
