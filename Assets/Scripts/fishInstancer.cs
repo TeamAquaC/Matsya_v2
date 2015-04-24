@@ -55,7 +55,7 @@ public class fishInstancer : MonoBehaviour {
 		fishHome.gameObject.AddComponent<rotateFish> ();
 
 		//Orient and scale fish properly.
-		newFish.transform.localScale += new Vector3 (3.0f-currentScale, 3.0f-currentScale, 3.0f-currentScale);
+		newFish.transform.localScale += new Vector3 (-4.0f+currentScale, -4.0f+currentScale, -4.0f+currentScale);
 		newFish.transform.Rotate (new Vector3(0, 90 , 45));
 		
 
