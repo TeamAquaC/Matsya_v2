@@ -63,8 +63,25 @@ public class RingRotation : MonoBehaviour
 			{
 				_rotation.z = (-_mouseOffset.y + _mouseOffset.x) * _sensitivity;
 			}
+
+			//Rotate fish in ring.
+			
+			foreach (Transform child in gameObject.transform )
+			{
+				if(child.gameObject.tag=="Ring")
+				{
+				
+					child.transform.Rotate(_rotation);
+				}
+
+				if(child.gameObject.tag=="fish")
+				{
+					child.transform.Rotate(0.5f*_rotation);
+				}
+			}
+
 			// rotate
-			gameObject.transform.Rotate(_rotation);
+			//gameObject.transform.Rotate(_rotation);
 			
 			// store mouse
 			_mouseReference = Input.mousePosition;
