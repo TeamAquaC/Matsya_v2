@@ -4,29 +4,29 @@ using System.Collections;
 public class fishInstancer : MonoBehaviour {
 	GameObject clone;
 	public int count = 0;
-	float timer= 6.0f;
+	float timer;
 	public float spawnRate;
-	public GameObject g ;
-	private GameObject parentObject;
+	public GameObject g;
+	//private GameObject parentObject;
 
 	// Use this for initialization
 	void Start () {
-		parentObject = transform.parent.gameObject;
+		timer = 0.0f;
+		spawnRate = 100.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//Count the number of small fish using tags. If length condition is not surpassed,
-		//spawn a new fish according to rate.
-
-		//GameObject [] objectsWithTag = GameObject.FindGameObjectsWithTag("innerFish");
-
-
-
 		/*if (objectsWithTag.Length > 6)
 		{
 			timer = 0.0f;
 		}*/
+		if (gameObject.transform.parent.transform.localScale.x < 0.6) {
+			spawnRate = 8;
+		} else if (gameObject.transform.parent.transform.localScale.x < 0.9) {
+			spawnRate = 10;
+		}
+
 
 		timer += Time.deltaTime;
 
@@ -42,23 +42,28 @@ public class fishInstancer : MonoBehaviour {
 	
 	void spawn(int count) 
 	{
-		//Get rings current scale.
+		//Get ringhomes current scale.
 		float currentScale = gameObject.transform.localScale.x;
 
 
 		//Script used to instantiate fish, inside an empty object, as a child of ring's parent.
 		GameObject fishInstance = g;
-		GameObject newFish = Instantiate (fishInstance, new Vector3 (0 , -0.5f-8*currentScale, 0), fishInstance.transform.rotation) as GameObject;
-		Transform fishHome = new GameObject ("fishHome").transform;
-		newFish.transform.SetParent (fishHome);
-		fishHome.transform.parent = parentObject.transform;
-		fishHome.gameObject.AddComponent<rotateFish> ();
+		float spawnOffset = gameObject.transform.parent.transform.localScale.x;
+		GameObject newFish = Instantiate (fishInstance, new Vector3 (0 , -7.5f*spawnOffset, 0), fishInstance.transform.rotation) as GameObject;
+		//Transform fishHome = new GameObject ("fishHome").transform;
+		//newFish.transform.SetParent (this.gameObject);
+		newFish.transform.parent = this.gameObject.transform;
+		//fishHome.gameObject.AddComponent<rotateFish> ();
 
 		//Orient and scale fish properly.
-		newFish.transform.localScale += new Vector3 (-4.0f+currentScale, -4.0f+currentScale, -4.0f+currentScale);
-		newFish.transform.Rotate (new Vector3(0, 90 , 45));
+
+		//fishHome.transform.localScale += new Vector3 (4f, 4f, 4f);
+		newFish.transform.localScale += new Vector3 (1.5f, 1.5f, 1.5f);
+		//Vector3 parentscale = fishHome.transform.localScale;
+		//newFish.transform.localScale = parentscale * 0.05f;
+
+		newFish.transform.Rotate (new Vector3(0, -90 , 45));
 		
 
 	}
-	
 }

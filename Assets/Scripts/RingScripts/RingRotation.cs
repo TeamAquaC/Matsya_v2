@@ -13,7 +13,7 @@ public class RingRotation : MonoBehaviour
 	private Vector3 _clickDrag;
 
 	private bool clockwise;
-	private GameObject parentObject;
+	//private GameObject parentObject;
 	
 	void Start ()
 	{
@@ -30,7 +30,7 @@ public class RingRotation : MonoBehaviour
 		//pick random ambientRotationSpeed
 		ambientRotationSpeed = Random.Range (0.01f, 0.09f);
 
-		parentObject = transform.parent.gameObject;
+		//parentObject = transform.parent.gameObject;
 	}
 
 	void Update()
@@ -64,7 +64,7 @@ public class RingRotation : MonoBehaviour
 				_rotation.z = (-_mouseOffset.y + _mouseOffset.x) * _sensitivity;
 			}
 			// rotate
-			parentObject.transform.Rotate(_rotation);
+			gameObject.transform.Rotate(_rotation);
 			
 			// store mouse
 			_mouseReference = Input.mousePosition;

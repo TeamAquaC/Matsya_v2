@@ -23,10 +23,11 @@ public class boat : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Define boat vector using empty game objects at front and back.
+		//That's wrong don't listen to him. This part's weird but working. 
 
 		boatDirection = Vector3.forward;
-		front.transform.RotateAround(Vector3.zero, Vector3.forward, boatRate * Time.deltaTime);
-		back.transform.RotateAround (Vector3.zero, Vector3.forward, boatRate * Time.deltaTime);
+		//front.transform.RotateAround(Vector3.zero, Vector3.forward, boatRate * Time.deltaTime);
+		//back.transform.RotateAround (Vector3.zero, Vector3.forward, boatRate * Time.deltaTime);
 		this.transform.Rotate(boatDirection * boatRate * Time.deltaTime);
 		timer += Time.deltaTime;
 

@@ -10,6 +10,7 @@ public class RingManager : MonoBehaviour {
 	public float removeRingThreshold = 0.2f;
 	public float spawnNewRingThreshold = 2f;
 	private float fadeInThreshold = 1f;
+	public GameObject ringHome;
 	public float FadeInThreshold
 	{
 		get
@@ -52,10 +53,10 @@ public class RingManager : MonoBehaviour {
 			newRing ();
 		}
 		if(totalRingCount >=5 ){
-			ringScaleSpeed = 0;
+			ringScaleSpeed = 1000f;
 		}
 
-			GameObject[] gos = GameObject.FindGameObjectsWithTag ("Ring");				//find all rings in game an add them to the list ringList
+			GameObject[] gos = GameObject.FindGameObjectsWithTag ("RingHome");				//find all rings in game an add them to the list ringList
 			if(gos != null)
 			{
 				foreach (GameObject go in gos) {
@@ -66,20 +67,20 @@ public class RingManager : MonoBehaviour {
 
 			if(ringList != null)
 			{
-				ringList = ringList.OrderBy (x => x.transform.localScale.x).ToList (); //Sort all rings small to lage.
+				ringList = ringList.OrderBy (x => x.transform.localScale.x).ToList (); //Sort all rings small to large.
 				 
 				foreach (GameObject go in ringList) {									//Scale all the rings by a given factor
 					float s = go.transform.localScale.x; 
 					s -= s / ringScaleSpeed; 
-					Vector3 xyS = new Vector3 (s, s);
-					go.transform.localScale = xyS;
+					Vector3 xyzS = new Vector3 (s, s, s);
+					go.transform.localScale = xyzS;
 				}
 
 				if (ringList [0].transform.localScale.x < 0.33f) {						//If ring is to small destroy it
-					Destroy (ringList[0].transform.parent.gameObject);
+					Destroy (ringList[0].gameObject);
 					ringList.RemoveAt (0);
 				}
-				if (ringList [ringList.Count - 1].transform.localScale.x < 1.4f) 		//If the lagest ring is at a specific scale add a new big ring
+				if (ringList [ringList.Count - 1].transform.localScale.x < 1.2f) 		//If the lagest ring is at a specific scale add a new big ring
 				{
 					newRing ();
 				}
@@ -90,7 +91,7 @@ public class RingManager : MonoBehaviour {
 
 	Vector3 getRingZPosition()
 	{
-		Vector3 vec = new Vector3 (0f,0f,-.001f * -totalRingCount);
+		Vector3 vec = new Vector3 (0f,0f,1+(0.001f * totalRingCount));
 		totalRingCount += 1;
 		return vec;
 	}
@@ -98,11 +99,11 @@ public class RingManager : MonoBehaviour {
 	void newRing()
 	{
 		GameObject toInstanciate = rings [0];
-		toInstanciate.transform.localScale = new Vector3(2f,2f,1f);
+		toInstanciate.transform.localScale = new Vector3(2f,2f,2f);
 		GameObject instance = Instantiate (toInstanciate, getRingZPosition(), Quaternion.identity) as GameObject;
-		Transform ringHome = new GameObject ("ringHome").transform;
-		instance.transform.SetParent (ringHome);
-		ringHome.transform.SetParent (boardHolder);
+		instance.gameObject.tag="RingHome";
+		//ringHome.gameObject.AddComponent (Collider2D);
+		instance.transform.SetParent (boardHolder);
 		ringList.Add (instance);
 
 

@@ -30,9 +30,9 @@ public class rotateFish : MonoBehaviour {
 		//Rotate the fish's around the origin.
 		this.transform.RotateAround (Vector3.zero, Vector3.forward, newSpeed * Time.deltaTime);
 
-		float s = gameObject.transform.localScale.x; 
+		/*float s = gameObject.transform.localScale.x; 
 		s -= s / 1500; 
 		Vector3 xyS = new Vector3 (s, s);
-		gameObject.transform.localScale = xyS;
+		gameObject.transform.localScale = xyS;*/
 	}
 }
