@@ -5,6 +5,7 @@ public class ringColorChanger : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 	
 	}
 	

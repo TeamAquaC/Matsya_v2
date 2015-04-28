@@ -4,9 +4,9 @@ using System.Collections;
 public class spearSpawn : MonoBehaviour {
  	GameObject [] spearClone = new GameObject[5];
 	int count = 0;
-	float timer= 0.0f;
+	public float timer= 0.0f;
 	public float spawnRate;
-	private float newSpawnRate;
+	public float newSpawnRate;
 	public GameObject g ;
 	//public GameObject h;
 	public GameObject boatFront;
