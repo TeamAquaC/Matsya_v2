@@ -62,7 +62,7 @@ public class fishInstancer : MonoBehaviour {
 		//Vector3 parentscale = fishHome.transform.localScale;
 		//newFish.transform.localScale = parentscale * 0.05f;
 
-		newFish.transform.Rotate (new Vector3(0, -90 , 45));
+		newFish.transform.Rotate (new Vector3(0, -90 , 0));
 		
 
 	}
