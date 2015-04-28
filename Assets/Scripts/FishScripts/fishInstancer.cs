@@ -49,7 +49,7 @@ public class fishInstancer : MonoBehaviour {
 		//Script used to instantiate fish, inside an empty object, as a child of ring's parent.
 		GameObject fishInstance = g;
 		float spawnOffset = gameObject.transform.parent.transform.localScale.x;
-		GameObject newFish = Instantiate (fishInstance, new Vector3 (0 , -8f*spawnOffset, 0), fishInstance.transform.rotation) as GameObject;
+		GameObject newFish = Instantiate (fishInstance, new Vector3 (0 , -16f*spawnOffset, 0), fishInstance.transform.rotation) as GameObject;
 		//Transform fishHome = new GameObject ("fishHome").transform;
 		//newFish.transform.SetParent (this.gameObject);
 		newFish.transform.parent = this.gameObject.transform;

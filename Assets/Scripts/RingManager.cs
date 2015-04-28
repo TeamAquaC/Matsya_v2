@@ -80,7 +80,7 @@ public class RingManager : MonoBehaviour {
 					go.transform.localScale = xyzS;
 				}
 
-				if (ringList [0].transform.localScale.x < 0.33f) {						//If ring is to small destroy it
+				if (ringList [0].transform.localScale.x < 0.33f) {						//If ring is too small destroy it
 					Destroy (ringList[0].gameObject);
 					ringList.RemoveAt (0);
 				}
