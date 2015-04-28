@@ -53,7 +53,11 @@ public class RingManager : MonoBehaviour {
 			newRing ();
 		}
 		if(totalRingCount >=5 ){
+			if (GameObject.FindGameObjectsWithTag("angelFish").Length>5){
 			ringScaleSpeed = 1000f;
+			}else{
+				ringScaleSpeed = 10000f;
+			}
 		}
 
 			GameObject[] gos = GameObject.FindGameObjectsWithTag ("RingHome");				//find all rings in game an add them to the list ringList
@@ -80,7 +84,7 @@ public class RingManager : MonoBehaviour {
 					Destroy (ringList[0].gameObject);
 					ringList.RemoveAt (0);
 				}
-				if (ringList [ringList.Count - 1].transform.localScale.x < 1.2f) 		//If the lagest ring is at a specific scale add a new big ring
+				if (ringList [ringList.Count - 1].transform.localScale.x < 1.4f) 		//If the lagest ring is at a specific scale add a new big ring
 				{
 					newRing ();
 				}

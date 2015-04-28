@@ -9,6 +9,7 @@ public class CollisionObject : MonoBehaviour {
 	{
 
 			Destroy(coll.gameObject);
+			Destroy (transform.parent.gameObject);
 			Debug.Log("Collision");
 			
 

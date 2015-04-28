@@ -6,7 +6,7 @@
       _MainTex ("Texture", 2D) = "white" {}
     }
     SubShader {
-      Tags { "Queue" = "Geometry-80" }
+      Tags { "Queue" = "Geometry-50" }
       CGPROGRAM
       #pragma surface surf Lambert
       struct Input {

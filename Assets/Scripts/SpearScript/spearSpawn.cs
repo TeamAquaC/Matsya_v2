@@ -19,7 +19,6 @@ public class spearSpawn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		spawnRate = 7.0f;
 	}
 	
 	// Update is called once per frame
