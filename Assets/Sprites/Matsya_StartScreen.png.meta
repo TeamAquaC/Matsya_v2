@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: df35dbb39a5c34c6192e6f727180acf9
-timeCreated: 1430185318
+timeCreated: 1430235176
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -62,7 +62,7 @@ TextureImporter:
         width: 531
         height: 228
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Matsya_StartScreen_3
       rect:
