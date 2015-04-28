@@ -5,7 +5,6 @@ public class rotateFish : MonoBehaviour {
 
 	private float rotationSpeed = 0;
 	private float newSpeed;
-	float inboundVelocity;
 	float inboundTimer;
 	float fishGoalPos;
 
@@ -13,7 +12,6 @@ public class rotateFish : MonoBehaviour {
 	void Start () 
 	{
 		inboundTimer = 0.0f;
-		float inboundVelocity = 10.0f;
 		fishGoalPos = 8.0f;
 		rotationSpeed = Random.Range (10, 40); 
 

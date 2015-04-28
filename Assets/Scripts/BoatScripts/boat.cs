@@ -6,18 +6,22 @@ public class boat : MonoBehaviour {
 	// Use this for initialization
 
 	public Vector3 boatDirection;
-	public float timer = 0.0f;
+	public float boatMoveTimer = 0.0f;
 	private float degreeVariable;
 	public float boatRate;
 	public Vector3 spearDirection;
-	public GameObject guiTextBox;
 	public GameObject front;
 	public GameObject back;
+	public GameObject GameManager;
+	private int intDegrees;
+	public float spearThrowTimer;
 
 
 	void Start () 
 	{
+		boatMoveTimer = 0.0f;
 		degreeVariable = Random.Range (20, 100);
+		intDegrees = Mathf.RoundToInt (degreeVariable);
 	}
 	
 	// Update is called once per frame
@@ -29,29 +33,46 @@ public class boat : MonoBehaviour {
 		//front.transform.RotateAround(Vector3.zero, Vector3.forward, boatRate * Time.deltaTime);
 		//back.transform.RotateAround (Vector3.zero, Vector3.forward, boatRate * Time.deltaTime);
 		this.transform.Rotate(boatDirection * boatRate * Time.deltaTime);
-		timer += Time.deltaTime;
+		boatMoveTimer += Time.deltaTime;
 
-		//Get selected game speed.
+		//Set spear timers between boat and spear spawn equal.
+		
+		spearSpawn spearScript = GameManager.GetComponent<spearSpawn>();
+		float spearThrowTimer = spearScript.timer;
 
-		speedChange speedScript = guiTextBox.GetComponent<speedChange>();
+		//Get game speed modifier
+		speedChange speedScript = GameManager.GetComponent<speedChange>();
 		float speedModBoat = speedScript.speedMod;
 
-		//Randomize boat rotational speed. Even ints rotate counterclockwise, odds rotate clockwise.
+		//Get spear spawn rate.
 
-		if (timer >= 2) {
+		float spearSpawnRate = spearScript.newSpawnRate;
 
-			degreeVariable = speedModBoat * Random.Range(20,100);
-		
-			timer = 0.0f;
+		//Pause briefly for spear throw
+		if (spearThrowTimer < 0.5){
+			boatRate = 0.0f;
+		}else if (spearThrowTimer > spearSpawnRate - 1.0f) {
+			boatRate=0.0f;
+		} else{
+			if (boatMoveTimer >= 2) {
+				
+				degreeVariable = speedModBoat * Random.Range(20,100);
+				intDegrees = Mathf.RoundToInt(degreeVariable);
+				boatMoveTimer = 0.0f;
 			}
-		if (degreeVariable % 2 == 0)
-		{
-			boatRate = - degreeVariable;
+			
+			if (degreeVariable % 2 == 0)
+			{
+				boatRate = - intDegrees;
+			}
+			
+			else
+			{
+				boatRate = intDegrees;
+			}
 		}
-		else
-		{
-			boatRate = degreeVariable;
-		}
+
+
 	}
 }
 
