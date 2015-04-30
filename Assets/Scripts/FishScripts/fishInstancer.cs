@@ -22,9 +22,9 @@ public class fishInstancer : MonoBehaviour {
 			timer = 0.0f;
 		}*/
 		if (gameObject.transform.parent.transform.localScale.x < 0.6) {
-			spawnRate = 8;
-		} else if (gameObject.transform.parent.transform.localScale.x < 0.9) {
 			spawnRate = 10;
+		} else if (gameObject.transform.parent.transform.localScale.x < 0.9) {
+			spawnRate = 6;
 		}
 
 
@@ -62,7 +62,7 @@ public class fishInstancer : MonoBehaviour {
 		//Vector3 parentscale = fishHome.transform.localScale;
 		//newFish.transform.localScale = parentscale * 0.05f;
 
-		newFish.transform.Rotate (new Vector3(0, -90 , 0));
+		//newFish.transform.Rotate (new Vector3(0, -90 , 0));
 		
 
 	}

@@ -76,7 +76,7 @@ public class RingRotation : MonoBehaviour
 
 				if(child.gameObject.tag=="fish")
 				{
-					child.transform.Rotate(0.5f*_rotation);
+					child.transform.Rotate(0.25f*_rotation);
 				}
 			}
 
