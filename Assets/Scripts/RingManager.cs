@@ -90,7 +90,7 @@ public class RingManager : MonoBehaviour {
 				}
 			}
 
-		Debug.Log ("Ring Count: " + ringList.Count);
+//		Debug.Log ("Ring Count: " + ringList.Count);
 	}
 
 	Vector3 getRingZPosition()
