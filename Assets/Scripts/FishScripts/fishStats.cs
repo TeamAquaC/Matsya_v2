@@ -9,7 +9,7 @@ public class fishStats : MonoBehaviour {
 	// Use this for initialization
 	void Awake () 
 	{
-		fishValue = Random.Range (0.5f, 2f);
+		fishValue = 6.0f;
 	}
 
 

@@ -6,11 +6,19 @@ using System.Linq;
 public class RingManager : MonoBehaviour {
 
 	public GameObject[] rings;
+	public GameObject visRing01;
+	public GameObject visRing02;
+	public GameObject visRing03;
+	public GameObject visRing04;
+	public GameObject hiddenRing01;
+	public GameObject hiddenRing02;
+	public GameObject hiddenRing03;
+	public GameObject hiddenRing04;
 	public float ringScaleSpeed = 0;
 	public float removeRingThreshold = 0.2f;
 	public float spawnNewRingThreshold = 2f;
 	private float fadeInThreshold = 1f;
-	public GameObject ringHome;
+	Vector3 vec;
 	public float FadeInThreshold
 	{
 		get
@@ -30,6 +38,7 @@ public class RingManager : MonoBehaviour {
 	private List<GameObject> ringList;
 	private Transform boardHolder;
 	private int totalRingCount;
+	private int visRingCount;
 	float timer;
 	
 	// Use this for initialization
@@ -37,6 +46,7 @@ public class RingManager : MonoBehaviour {
 	{
 		timer = 0.0f;
 		totalRingCount = 0;
+		visRingCount = 0;
 
 		ringList = new List<GameObject> ();
 		boardHolder = new GameObject ("Board").transform;
@@ -80,7 +90,7 @@ public class RingManager : MonoBehaviour {
 					go.transform.localScale = xyzS;
 				}
 
-				if (ringList [0].transform.localScale.x < 0.33f) {						//If ring is too small destroy it
+				if (ringList [0].transform.localScale.x < .33f) {						//If ring is too small destroy it
 					Destroy (ringList[0].gameObject);
 					ringList.RemoveAt (0);
 				}
@@ -95,8 +105,10 @@ public class RingManager : MonoBehaviour {
 
 	Vector3 getRingZPosition()
 	{
-		Vector3 vec = new Vector3 (0f,0f,1+(0.001f * totalRingCount));
+		vec = new Vector3 (0f,0f,1+(0.001f * totalRingCount));
 		totalRingCount += 1;
+		visRingCount += 1;
+		visRingCount = visRingCount % 4;
 		return vec;
 	}
 
@@ -106,10 +118,40 @@ public class RingManager : MonoBehaviour {
 		toInstanciate.transform.localScale = new Vector3(2f,2f,2f);
 		GameObject instance = Instantiate (toInstanciate, getRingZPosition(), Quaternion.identity) as GameObject;
 		instance.gameObject.tag="RingHome";
-		//ringHome.gameObject.AddComponent (Collider2D);
 		instance.transform.SetParent (boardHolder);
+
+
+		//Choose which visible ring to spawn based on number of rings in play.
+		GameObject visInstantiate;
+
+		if (visRingCount == 1) {
+			visInstantiate = visRing01;
+		} else if (visRingCount == 2) {
+			visInstantiate = visRing02;
+		} else if (visRingCount == 3) {
+			visInstantiate = visRing03;
+		} else {
+			visInstantiate = visRing04;
+		}
+
+		GameObject visibleRing = Instantiate (visInstantiate, vec, Quaternion.identity) as GameObject;
+		visibleRing.transform.SetParent (instance.transform);
+
+		//Do the same for the background shader ring.
+
+		if (visRingCount == 1) {
+			visInstantiate = hiddenRing01;
+		} else if (visRingCount == 2) {
+			visInstantiate = hiddenRing02;
+		} else if (visRingCount == 3) {
+			visInstantiate = hiddenRing03;
+		} else {
+			visInstantiate = hiddenRing04;
+		}
+
+		GameObject shaderRing = Instantiate (visInstantiate, vec, Quaternion.identity) as GameObject;
+		shaderRing.transform.SetParent (instance.transform);
+
 		ringList.Add (instance);
-
-
 	}
 }

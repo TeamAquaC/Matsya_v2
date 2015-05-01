@@ -133,14 +133,12 @@ public class RingRotation : MonoBehaviour
 			if(child.gameObject.tag=="Ring")
 			{
 				_rotation.z = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
-				//_rotation.z = Mathf.Lerp (rotationOld, _rotation.z, 10*Time.deltaTime);
 				child.transform.Rotate(_rotation);
 			}
 			
 			if(child.gameObject.tag=="fish")
 			{
 				_rotation.z = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
-				//_rotation.z = Mathf.Lerp (rotationOld, _rotation.z, 10*Time.deltaTime);
 				child.transform.Rotate(_rotation);
 			}
 		}

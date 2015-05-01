@@ -8,14 +8,14 @@ public class spearSpawn : MonoBehaviour {
 	public float spawnRate;
 	public float newSpawnRate;
 	public GameObject g ;
-	//public GameObject h;
+	public GameObject h;
 	public GameObject boatFront;
 	public GameObject boatBack;
 	public Vector3 randomDirection;
+	private int spearIndicNumber;
 	Quaternion t;
 	public float spearSpeed;
 	GameObject [] indicClone = new GameObject[5];
-	//public GameObject guiTextBox;
 
 	// Use this for initialization
 	void Start () {
@@ -34,10 +34,11 @@ public class spearSpawn : MonoBehaviour {
 		randomDirection = boatFront.transform.position - boatBack.transform.position;
 		timer += Time.deltaTime;
 
-		/*if (timer >= (newSpawnRate - .4f) && count < 5) 
+		if (timer >= (newSpawnRate - .4f) && spearIndicNumber == 0) 
 		{
 			indicator (count);
-		}*/
+			spearIndicNumber = 1;
+		}
 
 		if (timer >= newSpawnRate && count < 5) 
 		{
@@ -45,13 +46,14 @@ public class spearSpawn : MonoBehaviour {
 			count++;
 			timer= 0.0f; 
 			count = count % 5;
+			spearIndicNumber=0;
 		}
 	}
 
-	/*void indicator (int count)
+	void indicator (int count)
 	{
 		indicClone [count] = (GameObject)Instantiate (h, new Vector3 (0, 0, 0), Quaternion.identity);
-	}*/
+	}
 
 	void spawn(int count) 
 	{
@@ -68,11 +70,8 @@ public class spearSpawn : MonoBehaviour {
 		}
 		t = Quaternion.LookRotation(randomDirection);
 		spearClone[count] = (GameObject)Instantiate (g, new Vector3 (0, 0, 0), t);
-		/*spearClone[count].transform.Rotate(0, 90, 90);
-		spearClone[count].transform.localScale = new Vector3 (.1F, .1F, .1F);*/
 		spearClone[count].GetComponent<Rigidbody>().velocity = speedModSpear * randomDirection * spearSpeed;
-
-
+	
 	}
 
 }

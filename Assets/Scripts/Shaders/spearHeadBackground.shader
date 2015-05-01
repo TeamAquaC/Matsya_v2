@@ -6,7 +6,7 @@ Properties {
 }
 
 Category {
-    Tags {"Queue"="Geometry-60" "IgnoreProjector"="True"}
+    Tags {"Queue"="Geometry-90" "IgnoreProjector"="True"}
     ZWrite Off
     Blend SrcAlpha OneMinusSrcAlpha
  
@@ -37,7 +37,7 @@ Category {
     }}
     
     SubShader {
-      Tags { "Queue" = "Geometry-60" }
+      Tags { "Queue" = "Geometry-90" }
       CGPROGRAM
       #pragma surface surf Lambert
       struct Input {

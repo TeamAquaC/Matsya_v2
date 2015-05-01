@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 79415e5cf45d74eac93148db96a355c3
-timeCreated: 1429328356
+timeCreated: 1430516929
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - visRing01: {fileID: 164824, guid: 444b90b3c779f2141bac30702d4f5928, type: 2}
+  - visRing02: {fileID: 180664, guid: 50e4fc888f1d6044284d89d586c992af, type: 2}
+  - visRing03: {fileID: 127172, guid: 7c95f1a5edc87704c93ea9715be4e2b8, type: 2}
+  - visRing04: {fileID: 154738, guid: bffa83d82e9fb6c4891334937cb96ef1, type: 2}
+  - ringHome: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
