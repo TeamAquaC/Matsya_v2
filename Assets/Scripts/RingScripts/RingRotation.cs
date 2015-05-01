@@ -11,8 +11,11 @@ public class RingRotation : MonoBehaviour
 	private Vector3 _rotation;
 	private bool _isRotating;
 	private Vector3 _clickDrag;
+	private float rotationOld;
+	private Vector3 ringRotation;
 
 	private bool clockwise;
+	private bool lerpToAmbientRotation = false;
 	//private GameObject parentObject;
 	
 	void Start ()
@@ -35,12 +38,17 @@ public class RingRotation : MonoBehaviour
 
 	void Update()
 	{
+
+		if (lerpToAmbientRotation)
+			LerpToAmbientRotation ();
+
 		//Click and drag on (hidden) cylinder to ring and fish.
-		
 		_clickDrag = Camera.main.ScreenToViewportPoint (Input.mousePosition);
 		
 		if(_isRotating)
 		{
+			rotationOld = _rotation.z;
+
 			// offset
 			_mouseOffset = (Input.mousePosition - _mouseReference);
 			
@@ -64,32 +72,31 @@ public class RingRotation : MonoBehaviour
 				_rotation.z = (-_mouseOffset.y + _mouseOffset.x) * _sensitivity;
 			}
 
+
+
 			//Rotate fish in ring.
 			
 			foreach (Transform child in gameObject.transform )
 			{
 				if(child.gameObject.tag=="Ring")
 				{
-				
+					_rotation.z = Mathf.Lerp (rotationOld, _rotation.z, 10*Time.deltaTime);
 					child.transform.Rotate(_rotation);
 				}
 
 				if(child.gameObject.tag=="fish")
 				{
-					child.transform.Rotate(0.25f*_rotation);
+					_rotation.z = Mathf.Lerp (rotationOld, _rotation.z, 10*Time.deltaTime);
+					child.transform.Rotate(_rotation);
 				}
 			}
 
-			// rotate
-			//gameObject.transform.Rotate(_rotation);
-			
+			//ringRotation.z = _rotation.z;
+
 			// store mouse
 			_mouseReference = Input.mousePosition;
-
-
 		}
-
-		Vector3 ringRotation;
+		
 		if (clockwise) 
 		{
 			ringRotation = new Vector3(0f,0f,ambientRotationSpeed);
@@ -97,21 +104,16 @@ public class RingRotation : MonoBehaviour
 		{
 			ringRotation = new Vector3(0f,0f,-ambientRotationSpeed);
 		}
-
+			
 		transform.Rotate(ringRotation);
-
-		/*//Rotate fish in ring.
-		
-		foreach (Transform child in parentObject.transform)
-		{
-			transform.Rotate(_rotation);
-		}*/
 	}
 	
 	void OnMouseDown()
 	{
 		// rotating flag
 		_isRotating = true;
+
+		lerpToAmbientRotation = false;
 		
 		// store mouse
 		_mouseReference = Input.mousePosition;
@@ -121,6 +123,31 @@ public class RingRotation : MonoBehaviour
 	{
 		// rotating flag
 		_isRotating = false;
+		lerpToAmbientRotation = true;
+	}
+
+	void LerpToAmbientRotation()
+	{		
+		foreach (Transform child in gameObject.transform )
+		{
+			if(child.gameObject.tag=="Ring")
+			{
+				_rotation.z = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
+				//_rotation.z = Mathf.Lerp (rotationOld, _rotation.z, 10*Time.deltaTime);
+				child.transform.Rotate(_rotation);
+			}
+			
+			if(child.gameObject.tag=="fish")
+			{
+				_rotation.z = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
+				//_rotation.z = Mathf.Lerp (rotationOld, _rotation.z, 10*Time.deltaTime);
+				child.transform.Rotate(_rotation);
+			}
+		}
+		
+		rotationOld = _rotation.z ;
+
+
 	}
 	
 }
