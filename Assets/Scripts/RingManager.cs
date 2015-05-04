@@ -124,6 +124,8 @@ public class RingManager : MonoBehaviour {
 		//Choose which visible ring to spawn based on number of rings in play.
 		GameObject visInstantiate;
 
+		//commented out to test ring color change with only one ring sprite
+		/*
 		if (visRingCount == 1) {
 			visInstantiate = visRing01;
 		} else if (visRingCount == 2) {
@@ -133,7 +135,9 @@ public class RingManager : MonoBehaviour {
 		} else {
 			visInstantiate = visRing04;
 		}
-
+		*/ 
+		//added to test ring color change with one ring sprite
+		visInstantiate= visRing01;
 		GameObject visibleRing = Instantiate (visInstantiate, vec, Quaternion.identity) as GameObject;
 		visibleRing.transform.SetParent (instance.transform);
 
