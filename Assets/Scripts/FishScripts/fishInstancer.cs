@@ -4,14 +4,14 @@ using System.Collections;
 public class fishInstancer : MonoBehaviour {
 	GameObject clone;
 	public int count = 0;
-	float timer;
+	float timer=0.0f;
 	public float spawnRate;
 	public GameObject g;
 	//private GameObject parentObject;
 
 	// Use this for initialization
 	void Start () {
-		timer = 0.0f;
+
 		spawnRate = 100.0f;
 	}
 	
@@ -30,17 +30,18 @@ public class fishInstancer : MonoBehaviour {
 
 		timer += Time.deltaTime;
 
-		if (timer >= spawnRate /*&& objectsWithTag.Length < 6*/) 
+		if (timer >= 10  /*&& objectsWithTag.Length < 6*/) 
 		{
-			spawn(count);
-			count++;
+			if(this.transform.childCount < 4 && this.transform.localScale.x > 0.66)
+			{
+			spawn();
 			timer= 0.0f; 
-
+			}
 		}
 
 	}
 	
-	void spawn(int count) 
+	void spawn() 
 	{
 		//Get ringhomes current scale.
 		float currentScale = gameObject.transform.localScale.x;
