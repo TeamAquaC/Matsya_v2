@@ -9,7 +9,7 @@ public class fishStats : MonoBehaviour {
 	// Use this for initialization
 	void Awake () 
 	{
-		fishValue = 6.0f;
+		fishValue = 12.0f;
 	}
 
 

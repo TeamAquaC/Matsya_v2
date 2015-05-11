@@ -37,7 +37,7 @@ public class ManInTheBoatScript : MonoBehaviour
 		}
 
 		//reduce the health of the man in the boat at a fixed time interval
-		if (timer >= 1.0f) 
+		if (timer >= 0.75f) 
 		{
 			health -= 1f;
 			timer = 0.0f;

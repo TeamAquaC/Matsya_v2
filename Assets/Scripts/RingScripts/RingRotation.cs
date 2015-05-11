@@ -13,15 +13,17 @@ public class RingRotation : MonoBehaviour
 	private Vector3 _clickDrag;
 	private float rotationOld;
 	private Vector3 ringRotation;
-
+	private float gameRotationZ;
+	public float rotationMax;
 	private bool clockwise;
 	private bool lerpToAmbientRotation = false;
 	//private GameObject parentObject;
 	
 	void Start ()
 	{
-		_sensitivity = 0.4f;
+		_sensitivity = 0.2f;
 		_rotation = Vector3.zero;
+		rotationMax = 10f;
 
 		//pick random rotation direction
 		float randomNumber = Random.Range (0, 100);
@@ -32,8 +34,6 @@ public class RingRotation : MonoBehaviour
 
 		//pick random ambientRotationSpeed
 		ambientRotationSpeed = Random.Range (0.01f, 0.09f);
-
-		//parentObject = transform.parent.gameObject;
 	}
 
 	void Update()
@@ -47,7 +47,7 @@ public class RingRotation : MonoBehaviour
 		
 		if(_isRotating)
 		{
-			rotationOld = _rotation.z;
+			rotationOld = gameRotationZ;
 
 			// offset
 			_mouseOffset = (Input.mousePosition - _mouseReference);
@@ -72,7 +72,15 @@ public class RingRotation : MonoBehaviour
 				_rotation.z = (-_mouseOffset.y + _mouseOffset.x) * _sensitivity;
 			}
 
+			//Set rotation equal to current input, or to maxRotation if player input too fast.
 
+			if (_rotation.z > rotationMax){
+				gameRotationZ = rotationMax;
+			}else if(_rotation.z < -rotationMax){
+				gameRotationZ = -rotationMax;
+			}else{
+				gameRotationZ =_rotation.z;
+			}
 
 			//Rotate fish in ring.
 			
@@ -80,18 +88,24 @@ public class RingRotation : MonoBehaviour
 			{
 				if(child.gameObject.tag=="Ring")
 				{
-					_rotation.z = Mathf.Lerp (rotationOld, _rotation.z, 10*Time.deltaTime);
-					child.transform.Rotate(_rotation);
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 10*Time.deltaTime);
+					child.transform.Rotate(new Vector3(0,0,gameRotationZ));
 				}
 
 				if(child.gameObject.tag=="fish")
 				{
-					_rotation.z = Mathf.Lerp (rotationOld, _rotation.z, 10*Time.deltaTime);
-					child.transform.Rotate(_rotation);
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 8*Time.deltaTime);
+					//Rotate fish slightly more slowly than ring.
+					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.85f);
+				}
+
+				if(child.gameObject.tag=="sharkRing")
+				{
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 4*Time.deltaTime);
+					//Rotate sharks even more slowly.
+					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.5f);
 				}
 			}
-
-			//ringRotation.z = _rotation.z;
 
 			// store mouse
 			_mouseReference = Input.mousePosition;
@@ -132,18 +146,24 @@ public class RingRotation : MonoBehaviour
 		{
 			if(child.gameObject.tag=="Ring")
 			{
-				_rotation.z = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
-				child.transform.Rotate(_rotation);
+				gameRotationZ = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
+				child.transform.Rotate(new Vector3(0, 0, gameRotationZ));
 			}
 			
 			if(child.gameObject.tag=="fish")
 			{
-				_rotation.z = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
-				child.transform.Rotate(_rotation);
+				gameRotationZ = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
+				child.transform.Rotate(new Vector3(0, 0, gameRotationZ));
+			}
+
+			if(child.gameObject.tag=="sharkRing")
+			{
+				gameRotationZ = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
+				child.transform.Rotate(new Vector3(0, 0, gameRotationZ));
 			}
 		}
 		
-		rotationOld = _rotation.z ;
+		rotationOld = gameRotationZ ;
 
 
 	}

@@ -36,6 +36,7 @@ public class RingManager : MonoBehaviour {
 	}
 
 	private List<GameObject> ringList;
+	private List<Transform> taggedChildren;
 	private Transform boardHolder;
 	private int totalRingCount;
 	private int visRingCount;
@@ -61,13 +62,6 @@ public class RingManager : MonoBehaviour {
 		if (totalRingCount < 1) {
 			ringScaleSpeed = 100f;
 			newRing ();
-		}
-		if(totalRingCount >=5 ){
-			if (GameObject.FindGameObjectsWithTag("angelFish").Length>5){
-			ringScaleSpeed = 1000f;
-			}else{
-				ringScaleSpeed = 10000f;
-			}
 		}
 
 			GameObject[] gos = GameObject.FindGameObjectsWithTag ("RingHome");				//find all rings in game an add them to the list ringList
@@ -100,7 +94,15 @@ public class RingManager : MonoBehaviour {
 				}
 			}
 
-//		Debug.Log ("Ring Count: " + ringList.Count);
+		if(totalRingCount >=5 && ringList != null){
+			
+			if (ringList[0].gameObject.GetComponentInChildren<fishInstancer>().fishCount < 1){
+				ringScaleSpeed = 1000f;
+			}else{
+				ringScaleSpeed = 10000f;
+			}
+		}
+
 	}
 
 	Vector3 getRingZPosition()
@@ -119,7 +121,6 @@ public class RingManager : MonoBehaviour {
 		GameObject instance = Instantiate (toInstanciate, getRingZPosition(), Quaternion.identity) as GameObject;
 		instance.gameObject.tag="RingHome";
 		instance.transform.SetParent (boardHolder);
-
 
 		//Choose which visible ring to spawn based on number of rings in play.
 		GameObject visInstantiate;
