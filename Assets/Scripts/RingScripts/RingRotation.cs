@@ -24,7 +24,7 @@ public class RingRotation : MonoBehaviour
 	{
 		_sensitivity = 0.5f;
 		_rotation = Vector3.zero;
-		rotationMax = 30f;
+		rotationMax = 10f;
 
 		//pick random rotation direction
 		float randomNumber = Random.Range (0, 100);
