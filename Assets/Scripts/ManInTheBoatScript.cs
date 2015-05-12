@@ -35,19 +35,22 @@ public class ManInTheBoatScript : MonoBehaviour
 			health = 0f;
 			ManInTheBoatIsDead();
 		}
+		else if(health >= 100.0f)
+		{
+			health = 0f;
+			ManInTheBoatIsFat();
+		}
 
 		//reduce the health of the man in the boat at a fixed time interval
 		if (timer >= 0.75f) 
 		{
 			health -= 1f;
 			timer = 0.0f;
-			UpdateLifeBar ();
+			UpdateLifeBar();
 		}
 
 		//handels what happens when the health changes
 		HealthIndicator ();
-	
-
 	}
 
 	public void FishKilled(float valueOfFish)
@@ -64,6 +67,13 @@ public class ManInTheBoatScript : MonoBehaviour
 	public void ManInTheBoatIsDead()
 	{
 		Debug.Log ("You suck");
+		Time.timeScale = 0.0f;
+	}
+
+	public void ManInTheBoatIsFat()
+	{
+		Debug.Log ("You fat");
+		Time.timeScale = 0.0f;
 	}
 
 	public void HealthIndicator()
@@ -83,12 +93,7 @@ public class ManInTheBoatScript : MonoBehaviour
 		{
 			healthBarText.color = new Color (0, 255, 0);
 		}
-
 		//change mesh text to the right falue
 		healthBarText.text = Mathf.RoundToInt(health).ToString();
 	}
-
-
-
-
 }
