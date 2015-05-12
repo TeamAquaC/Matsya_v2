@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 			Destroy(gameObject);    
 		
 		//Sets this to not be destroyed when reloading scene
-		DontDestroyOnLoad(gameObject);
+		//DontDestroyOnLoad(gameObject);
 
 		GameObject instanc = Instantiate (ringManager, new Vector3(0f,0f,0f), Quaternion.identity) as GameObject;
 		instanc.transform.SetParent(transform);
