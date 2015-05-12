@@ -88,7 +88,7 @@ public class HealthFading : MonoBehaviour {
 		
 		//Script used to instantiate shar, as a child of sharkRing in the third ring.
 		float spawnOffset = outerRing.transform.localScale.x;
-		GameObject newFish = Instantiate (sharkInstance, new Vector3 (0 , -8f*spawnOffset, -1), sharkInstance.transform.rotation) as GameObject;
+		GameObject newFish = Instantiate (sharkInstance, new Vector3 (0 , -16f*spawnOffset, -1), sharkInstance.transform.rotation) as GameObject;
 		newFish.transform.parent = outerRing.transform.FindChild("sharkRing");
 		newFish.transform.localScale *= 1.75f*currentScale;
 		sharkTimer = 0.0f;
