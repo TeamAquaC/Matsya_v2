@@ -25,7 +25,7 @@ public class RingTrans : MonoBehaviour {
 
 	void Update () 
 	{
-		if (rend.material.color.a < 0.99f) { 															//Fade in after instantiated
+		if (rend.material.color.a < 0.9999f) { 															//Fade in after instantiated
 			lerpedColor = Color.Lerp(rend.material.color, new Color (1f,1f,1f,1f), Time.deltaTime*4);
 			rend.material.color = lerpedColor;
 		}

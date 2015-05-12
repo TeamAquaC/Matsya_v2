@@ -126,8 +126,10 @@ public class RingRotation : MonoBehaviour
 		{
 			ringRotation = new Vector3(0f,0f,-ambientRotationSpeed);
 		}
-			
-		transform.Rotate(ringRotation);
+
+
+		if(Time.deltaTime != 0f)
+			transform.Rotate(ringRotation);
 	}
 	
 	void OnMouseDown()
@@ -149,37 +151,33 @@ public class RingRotation : MonoBehaviour
 	}
 
 	void LerpToAmbientRotation()
-	{		
-		foreach (Transform child in gameObject.transform )
+	{	
+		if (Time.deltaTime != 0)
 		{
-			if(child.gameObject.tag=="visRing")
-			{
-				gameRotationZ = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
-				child.transform.Rotate(new Vector3(0, 0, gameRotationZ));
-			}
+			foreach (Transform child in gameObject.transform) {
+				if (child.gameObject.tag == "visRing") {
+					gameRotationZ = Mathf.Lerp (rotationOld, ringRotation.z, 1 * Time.deltaTime);
+					child.transform.Rotate (new Vector3 (0, 0, gameRotationZ));
+				}
 			
-			if(child.gameObject.tag=="fish")
-			{
-				gameRotationZ = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
-				child.transform.Rotate(new Vector3(0, 0, gameRotationZ));
-			}
+				if (child.gameObject.tag == "fish") {
+					gameRotationZ = Mathf.Lerp (rotationOld, ringRotation.z, 1 * Time.deltaTime);
+					child.transform.Rotate (new Vector3 (0, 0, gameRotationZ));
+				}
 
-			if(child.gameObject.tag=="sharkRing")
-			{
-				gameRotationZ = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
-				child.transform.Rotate(new Vector3(0, 0, gameRotationZ));
-			}
+				if (child.gameObject.tag == "sharkRing") {
+					gameRotationZ = Mathf.Lerp (rotationOld, ringRotation.z, 1 * Time.deltaTime);
+					child.transform.Rotate (new Vector3 (0, 0, gameRotationZ));
+				}
 
-			if(child.gameObject.tag=="tunaRing")
-			{
-				gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 1*Time.deltaTime);
-				//Rotate tuna slightly faster than fish.
-				child.transform.Rotate(new Vector3(0,0,gameRotationZ));
+				if (child.gameObject.tag == "tunaRing") {
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 1 * Time.deltaTime);
+					//Rotate tuna slightly faster than fish.
+					child.transform.Rotate (new Vector3 (0, 0, gameRotationZ));
+				}
 			}
+			rotationOld = gameRotationZ ;
 		}
-		
-		rotationOld = gameRotationZ ;
-
 
 	}
 	
