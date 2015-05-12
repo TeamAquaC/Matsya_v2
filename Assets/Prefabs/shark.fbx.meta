@@ -541,7 +541,277 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: root_jnt
+        weight: 1
+      - path: root_jnt/head_jnt
+        weight: 1
+      - path: root_jnt/head_jnt/eye_left
+        weight: 1
+      - path: root_jnt/head_jnt/eye_right
+        weight: 1
+      - path: root_jnt/head_jnt/head_tip_jnt
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/jaw_tip_jnt
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_1
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_2
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_3
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_4
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_5
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_6
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_7
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_8
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_9
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_10
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_11
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_12
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_13
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_14
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_15
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_16
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_17
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_18
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_19
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_20
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_21
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_22
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_23
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_24
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_25
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_26
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_27
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_28
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_29
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_30
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_31
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_32
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_33
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_34
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_35
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_36
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_37
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_38
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_39
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_40
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_41
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_42
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_43
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_44
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_45
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_46
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_47
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_48
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_49
+        weight: 1
+      - path: root_jnt/head_jnt/jaw_jnt/Lower_teeth_group/Lower_teeth_50
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_1
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_2
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_3
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_4
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_5
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_6
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_7
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_8
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_9
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_10
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_11
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_12
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_13
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_14
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_15
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_16
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_17
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_18
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_19
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_20
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_21
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_22
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_23
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_24
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_25
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_26
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_27
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_28
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_29
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_30
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_31
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_32
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_33
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_34
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_35
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_36
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_37
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_38
+        weight: 1
+      - path: root_jnt/head_jnt/Upper_teeth_group/Upper_teeth_39
+        weight: 1
+      - path: root_jnt/left_flipper_01_jnt
+        weight: 1
+      - path: root_jnt/left_flipper_01_jnt/left_flipper_02_jnt
+        weight: 1
+      - path: root_jnt/left_flipper_01_jnt/left_flipper_02_jnt/left_flipper_tip_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/fin_01_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/fin_01_jnt/fin_02_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/fin_01_jnt/fin_02_jnt/fin_tip_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/tail_01_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/tail_01_jnt/tail_02_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/tail_01_jnt/tail_02_jnt/tail_03_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/tail_01_jnt/tail_02_jnt/tail_03_jnt/tail_04_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/tail_01_jnt/tail_02_jnt/tail_03_jnt/tail_04_jnt/tail_tip_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/tail_01_jnt/tail_02_jnt/tail_03_jnt/tail_04_jnt/tailBottom_01_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/tail_01_jnt/tail_02_jnt/tail_03_jnt/tail_04_jnt/tailBottom_01_jnt/tailBottom_02_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/tail_01_jnt/tail_02_jnt/tail_03_jnt/tail_04_jnt/tailBottom_01_jnt/tailBottom_02_jnt/tailBottom_tip_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/tail_01_jnt/tail_02_jnt/tail_03_jnt/tail_04_jnt/tailUpper_01_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/tail_01_jnt/tail_02_jnt/tail_03_jnt/tail_04_jnt/tailUpper_01_jnt/tailUpper_02_jnt
+        weight: 1
+      - path: root_jnt/mid_jnt/tail_01_jnt/tail_02_jnt/tail_03_jnt/tail_04_jnt/tailUpper_01_jnt/tailUpper_02_jnt/tailUpper_tip_jnt
+        weight: 1
+      - path: root_jnt/right_flipper_01_jnt
+        weight: 1
+      - path: root_jnt/right_flipper_01_jnt/right_flipper_02_jnt
+        weight: 1
+      - path: root_jnt/right_flipper_01_jnt/right_flipper_02_jnt/right_flipper_tip_jnt
+        weight: 1
+      - path: sharkGRP
+        weight: 1
+      - path: sharkGRP/mainbody
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

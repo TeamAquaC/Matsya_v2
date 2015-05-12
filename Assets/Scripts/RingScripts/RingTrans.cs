@@ -17,7 +17,7 @@ public class RingTrans : MonoBehaviour {
 		rend = GetComponent<Renderer> ();											//Set sprite to be transperent when instantiated
 		rend.material.color = new Color (1f, 1f, 1f, 0f);
 
-		RingManager script = ringManager.GetComponent<RingManager> ();				//Get variables from RingManager Script
+		RingManagerScript script = ringManager.GetComponent<RingManagerScript> ();				//Get variables from RingManager Script
 		fadeInThreshold = script.FadeInThreshold;
 		fadeOutThreshold = script.FadeOutThreshold;
 	}

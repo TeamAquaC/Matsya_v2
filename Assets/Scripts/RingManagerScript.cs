@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class RingManager : MonoBehaviour {
+public class RingManagerScript : MonoBehaviour {
 
 	public GameObject[] rings;
 	public GameObject visRing01;
@@ -18,6 +18,7 @@ public class RingManager : MonoBehaviour {
 	public float removeRingThreshold = 0.2f;
 	public float spawnNewRingThreshold = 2f;
 	private float fadeInThreshold = 1f;
+	public GameObject sharkSpawnRing;
 	Vector3 vec;
 	public float FadeInThreshold
 	{
@@ -103,6 +104,10 @@ public class RingManager : MonoBehaviour {
 			}
 		}
 
+		//Used to tell healthFading script where to spawn sharks. To avoid error, waits until at least 3 rings are on screen.
+		if (totalRingCount >= 3) {
+			sharkSpawnRing = ringList [2];
+		}
 	}
 
 	Vector3 getRingZPosition()
@@ -126,7 +131,7 @@ public class RingManager : MonoBehaviour {
 		GameObject visInstantiate;
 
 		//commented out to test ring color change with only one ring sprite
-		/*
+
 		if (visRingCount == 1) {
 			visInstantiate = visRing01;
 		} else if (visRingCount == 2) {
@@ -136,9 +141,9 @@ public class RingManager : MonoBehaviour {
 		} else {
 			visInstantiate = visRing04;
 		}
-		*/ 
+
 		//added to test ring color change with one ring sprite
-		visInstantiate= visRing01;
+//		visInstantiate= visRing01;
 		GameObject visibleRing = Instantiate (visInstantiate, vec, Quaternion.identity) as GameObject;
 		visibleRing.transform.SetParent (instance.transform);
 
