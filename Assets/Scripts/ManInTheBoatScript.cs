@@ -12,6 +12,7 @@ public class ManInTheBoatScript : MonoBehaviour
 	private float greenHealthZone = 10f;
 	private float orangeHealthZone = 20f;
 	private float redHealthZone = 30;
+	private bool gameOver = false;
 
 	private TextMesh healthBarText;
 
@@ -29,28 +30,27 @@ public class ManInTheBoatScript : MonoBehaviour
 	{
 		timer += Time.deltaTime;
 
-		//if health is 0 let the man die
-		if (health <= 0.0f) 
+		if (!gameOver) 
 		{
-			health = 0f;
-			ManInTheBoatIsDead();
-		}
-		else if(health >= 100.0f)
-		{
-			health = 0f;
-			ManInTheBoatIsFat();
-		}
+			//if health is 0 let the man die
+			if (health <= 0.0f) {
+				health = 0f;
+				ManInTheBoatIsDead ();
+			} else if (health >= 100.0f) {
+				health = 0f;
+				ManInTheBoatIsFat ();
+			}
 
-		//reduce the health of the man in the boat at a fixed time interval
-		if (timer >= 0.75f) 
-		{
-			health -= 1f;
-			timer = 0.0f;
-			UpdateLifeBar();
-		}
+			//reduce the health of the man in the boat at a fixed time interval
+			if (timer >= 0.75f) {
+				health -= 1f;
+				timer = 0.0f;
+				UpdateLifeBar ();
+			}
 
-		//handels what happens when the health changes
-		HealthIndicator ();
+			//handels what happens when the health changes
+			HealthIndicator ();
+		}
 	}
 
 	public void FishKilled(float valueOfFish)
@@ -66,14 +66,16 @@ public class ManInTheBoatScript : MonoBehaviour
 
 	public void ManInTheBoatIsDead()
 	{
+		gameOver = true;
 		Debug.Log ("You suck");
-		Time.timeScale = 0.0f;
+		StartCoroutine( LoadStoryWeelScene ());
 	}
 
 	public void ManInTheBoatIsFat()
 	{
+		gameOver = true;
 		Debug.Log ("You fat");
-		Time.timeScale = 0.0f;
+		StartCoroutine( LoadStoryWeelScene ());
 	}
 
 	public void HealthIndicator()
@@ -95,5 +97,13 @@ public class ManInTheBoatScript : MonoBehaviour
 		}
 		//change mesh text to the right falue
 		healthBarText.text = Mathf.RoundToInt(health).ToString();
+	}
+
+	public IEnumerator LoadStoryWeelScene()
+	{
+		float fadeTime = GameObject.Find ("Main Camera").GetComponent<SceneFading> ().BeginFade (1);
+		Debug.Log ("FadingTime: " + fadeTime);
+		yield return new WaitForSeconds(fadeTime);
+		Application.LoadLevel ("StartScreen");
 	}
 }
