@@ -95,14 +95,14 @@ public class RingRotation : MonoBehaviour
 
 				if(child.gameObject.tag=="fish")
 				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 10*Time.deltaTime);
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 8*Time.deltaTime);
 					//Rotate fish slightly slower than ring.
-					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.9f);
+					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.8f);
 				}
 
 				if(child.gameObject.tag=="sharkRing")
 				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 10*Time.deltaTime);
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 6*Time.deltaTime);
 					//Rotate sharks even slower.
 					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.6f);
 				}
@@ -168,6 +168,13 @@ public class RingRotation : MonoBehaviour
 			{
 				gameRotationZ = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
 				child.transform.Rotate(new Vector3(0, 0, gameRotationZ));
+			}
+
+			if(child.gameObject.tag=="tunaRing")
+			{
+				gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 1*Time.deltaTime);
+				//Rotate tuna slightly faster than fish.
+				child.transform.Rotate(new Vector3(0,0,gameRotationZ));
 			}
 		}
 		
