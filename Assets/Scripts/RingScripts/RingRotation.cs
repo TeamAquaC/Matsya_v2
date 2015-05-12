@@ -17,13 +17,14 @@ public class RingRotation : MonoBehaviour
 	public float rotationMax;
 	private bool clockwise;
 	private bool lerpToAmbientRotation = false;
+
 	//private GameObject parentObject;
 	
 	void Start ()
 	{
 		_sensitivity = 0.5f;
 		_rotation = Vector3.zero;
-		rotationMax = 10f;
+		rotationMax = 30f;
 
 		//pick random rotation direction
 		float randomNumber = Random.Range (0, 100);
@@ -94,16 +95,23 @@ public class RingRotation : MonoBehaviour
 
 				if(child.gameObject.tag=="fish")
 				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 8*Time.deltaTime);
-					//Rotate fish slightly more slowly than ring.
-					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.85f);
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 10*Time.deltaTime);
+					//Rotate fish slightly slower than ring.
+					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.9f);
 				}
 
 				if(child.gameObject.tag=="sharkRing")
 				{
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 10*Time.deltaTime);
+					//Rotate sharks even slower.
+					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.6f);
+				}
+
+				if(child.gameObject.tag=="tunaRing")
+				{
 					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 4*Time.deltaTime);
-					//Rotate sharks even more slowly.
-					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.5f);
+					//Rotate tuna slightly faster than fish.
+					child.transform.Rotate(new Vector3(0,0,gameRotationZ));
 				}
 			}
 

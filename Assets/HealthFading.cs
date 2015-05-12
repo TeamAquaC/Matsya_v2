@@ -11,11 +11,15 @@ public class HealthFading : MonoBehaviour {
 	public float sharkTimer;
 	private ManInTheBoatScript manInTheBoatScript;
 	float health;
+	public float sharkSpawnTime;
+	public GameObject shark;
+	public GameObject gameManager;
 
 	void Start()
 	{
 		manInTheBoatScript = GameObject.Find ("ManInTheBoatObject").GetComponent<ManInTheBoatScript> ();
 		sharkTimer = 0.0f;
+		sharkSpawnTime = 5.0f;
 	}
 
 	void Update()
@@ -30,6 +34,24 @@ public class HealthFading : MonoBehaviour {
 		{
 			alpha = 0;
 		}
+
+		
+		//If health is too high and not enough sharks, add to shark timer
+		if (GameObject.FindGameObjectsWithTag ("shark").Length == 0 && health > 55.0f) {
+			sharkTimer += Time.deltaTime;
+		} else if (GameObject.FindGameObjectsWithTag ("shark").Length == 1 && health > 70.0f) {
+			sharkTimer += Time.deltaTime;
+		} else if (GameObject.FindGameObjectsWithTag ("shark").Length == 2 && health > 85.0f) {
+			sharkTimer += Time.deltaTime;
+		} else {
+			sharkTimer = 0.0f;
+		}
+
+		//Spawn a shark if sharkTimer limit is reached.
+			if (sharkTimer > sharkSpawnTime)
+				{
+					sharkSpawn();
+				}
 
 
 
@@ -54,5 +76,22 @@ public class HealthFading : MonoBehaviour {
 		return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
 	}
 
+	void sharkSpawn() 
+	{
+		RingManagerScript ringTracker = gameManager.GetComponentInChildren<RingManagerScript> ();
+		GameObject outerRing = ringTracker.sharkSpawnRing;
+
+		//Get ringhomes current scale.
+		float currentScale = outerRing.transform.localScale.x;
+		
+		GameObject sharkInstance = shark;
+		
+		//Script used to instantiate shar, as a child of sharkRing in the third ring.
+		float spawnOffset = outerRing.transform.localScale.x;
+		GameObject newFish = Instantiate (sharkInstance, new Vector3 (0 , -8f*spawnOffset, -1), sharkInstance.transform.rotation) as GameObject;
+		newFish.transform.parent = outerRing.transform.FindChild("sharkRing");
+		newFish.transform.localScale *= 1.75f*currentScale;
+		sharkTimer = 0.0f;
+	}
 
 }

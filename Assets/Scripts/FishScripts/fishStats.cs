@@ -9,7 +9,15 @@ public class fishStats : MonoBehaviour {
 	// Use this for initialization
 	void Awake () 
 	{
-		fishValue = 12.0f;
+		if (gameObject.tag == "angelFish") {
+			fishValue = 11.0f;
+		}
+		if (gameObject.tag == "tuna") {
+			fishValue = 7.0f;
+		}
+		if (gameObject.tag == "angelFish") {
+			fishValue = 15.0f;
+		}
 	}
 
 
