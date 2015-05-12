@@ -24,7 +24,7 @@ public class RingRotation : MonoBehaviour
 	{
 		_sensitivity = 0.5f;
 		_rotation = Vector3.zero;
-		rotationMax = 10f;
+		rotationMax = 30f;
 
 		//pick random rotation direction
 		float randomNumber = Random.Range (0, 100);
@@ -87,10 +87,10 @@ public class RingRotation : MonoBehaviour
 			
 			foreach (Transform child in gameObject.transform )
 			{
-				if(child.gameObject.tag=="Ring")
+				if(child.gameObject.tag=="visRing")
 				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 10*Time.deltaTime);
-					child.transform.Rotate(new Vector3(0,0,gameRotationZ));
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 1000*Time.deltaTime);
+					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*2);
 				}
 
 				if(child.gameObject.tag=="fish")
@@ -152,7 +152,7 @@ public class RingRotation : MonoBehaviour
 	{		
 		foreach (Transform child in gameObject.transform )
 		{
-			if(child.gameObject.tag=="Ring")
+			if(child.gameObject.tag=="visRing")
 			{
 				gameRotationZ = Mathf.Lerp (rotationOld, ringRotation.z, 1*Time.deltaTime);
 				child.transform.Rotate(new Vector3(0, 0, gameRotationZ));
