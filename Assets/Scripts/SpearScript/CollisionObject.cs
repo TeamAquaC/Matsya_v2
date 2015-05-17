@@ -5,8 +5,6 @@ public class CollisionObject : MonoBehaviour {
 
 	//Used on spear head to destroy any object with a collider that it hits.
 
-
-
 	void OnTriggerEnter(Collider coll)
 	{
 		//get value of fish
@@ -15,6 +13,9 @@ public class CollisionObject : MonoBehaviour {
 
 		//send fish value to man in the boat
 		GameObject.Find ("ManInTheBoatObject").gameObject.SendMessage("FishKilled",fishValue);
+
+		//send fish killed to level changer
+		GameObject.Find ("LevelManager").gameObject.SendMessage("FishKilled");
 
 		//kill fish
 		Destroy(coll.gameObject);

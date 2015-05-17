@@ -104,6 +104,6 @@ public class ManInTheBoatScript : MonoBehaviour
 		float fadeTime = GameObject.Find ("Main Camera").GetComponent<SceneFading> ().BeginFade (1);
 		Debug.Log ("FadingTime: " + fadeTime);
 		yield return new WaitForSeconds(fadeTime);
-		Application.LoadLevel ("StartScreen");
+		Application.LoadLevel ("StoryWeelScene");
 	}
 }
