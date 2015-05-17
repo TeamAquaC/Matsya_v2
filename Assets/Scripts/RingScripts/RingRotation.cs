@@ -83,33 +83,37 @@ public class RingRotation : MonoBehaviour
 				gameRotationZ =_rotation.z;
 			}
 
+//			//Use this instead if we want to remove rotation speed cap.
+//
+//			gameRotationZ =_rotation.z;
+
 			//Rotate fish in ring.
 			
 			foreach (Transform child in gameObject.transform )
 			{
 				if(child.gameObject.tag=="visRing")
 				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 1000*Time.deltaTime);
-					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*2);
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 10*Time.deltaTime);
+					child.transform.Rotate(new Vector3(0,0,gameRotationZ));
 				}
 
 				if(child.gameObject.tag=="fish")
 				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 8*Time.deltaTime);
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 9*Time.deltaTime);
 					//Rotate fish slightly slower than ring.
 					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.8f);
 				}
 
 				if(child.gameObject.tag=="sharkRing")
 				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 6*Time.deltaTime);
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 7*Time.deltaTime);
 					//Rotate sharks even slower.
 					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.6f);
 				}
 
 				if(child.gameObject.tag=="tunaRing")
 				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 4*Time.deltaTime);
+					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 10*Time.deltaTime);
 					//Rotate tuna slightly faster than fish.
 					child.transform.Rotate(new Vector3(0,0,gameRotationZ));
 				}
