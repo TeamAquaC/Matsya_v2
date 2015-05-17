@@ -24,21 +24,26 @@ public class LevelChanger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (deadFishVal > 2 && gameOver == false){
+		if (deadFishVal > 2 && currentLevel == 1) {
 			Debug.Log ("TEST");
-			StartCoroutine( StoryWheelSuccess ());
+			StartCoroutine (StoryWheelSuccess ());
 			currentLevel = 2;
-			gameOver = true;
+			deadFishVal=0;
+		}
+			if (currentLevel==2 && deadFishVal > 2)
+			{
+			StartCoroutine (StoryWheelSuccess ());
+			currentLevel = 3;
+			deadFishVal=0;
 
-
-
+			}
 		//View 3 rings 
 //		if (currentLevel >= 2) {
 //			Camera.main.orthographicSize = 8;
 //		}
 
 
-	}
+	
 
 //	void currentLevelFunction(){
 //
