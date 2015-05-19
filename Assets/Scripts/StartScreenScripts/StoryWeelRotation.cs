@@ -5,7 +5,7 @@ public class StoryWeelRotation : MonoBehaviour
 {
 	
 	public float _sensitivity = 2;
-	public float angVelThresholdFinalPosition = 30;
+	public float angVelThresholdFinalPosition = 20;
 //	public float ambientRotationSpeed = 0.005;
 	private Vector3 _mouseReference;
 	private Vector3 _mouseOffset;
@@ -13,11 +13,15 @@ public class StoryWeelRotation : MonoBehaviour
 	private bool _isRotating;
 	private Vector3 _clickDrag;
 
-
+	bool startLerp = false;
 	
 	private bool clockwise = true;
 
 	Rigidbody2D rigBody;
+
+	int closestLevel;
+	float rotationGoal;
+	float currentRotation;
 
 	void Start ()
 	{
@@ -56,25 +60,27 @@ public class StoryWeelRotation : MonoBehaviour
 			// store mouse
 			_mouseReference = Input.mousePosition;
 		}
-		else if(rigBody.angularVelocity < angVelThresholdFinalPosition)
+		else if(rigBody.angularVelocity < angVelThresholdFinalPosition && rigBody.angularVelocity > -angVelThresholdFinalPosition  )
 		{
-			//if velocity is smaller than threshold than rotate to the closes level
-			int closestLevel = gameObject.GetComponent<LevelSelecter>().levelSelected;
+			if(startLerp){
+				startLerp = false;
+				StartLerp();
+			}
 
-			float rotationGoal = closestLevel * 36f - 18f;
-			float currentRotation = transform.rotation.z;
-
-//			if(currentRotation <)
+			float applyRotation = Mathf.LerpAngle(transform.eulerAngles.z, rotationGoal, Time.deltaTime * 2f);
+			transform.eulerAngles = new Vector3(0f,0f, applyRotation);
 
 
 		}
+		Debug.Log("RotationGoal" + rotationGoal+ "current rot: "+ transform.eulerAngles.z * Mathf.Rad2Deg);
+	}
 
-
-
-
-
-
-		Debug.Log ("Angular Velocity" + rigBody.angularVelocity);
+	void StartLerp()
+	{
+		rigBody.angularVelocity = 0f;
+		closestLevel = gameObject.GetComponent<LevelSelecter>().levelSelected;
+		rotationGoal = closestLevel * 36f - 18f;
+		Debug.Log("RotationGoal" + rotationGoal+ "current rot: "+ transform.rotation.z * Mathf.Rad2Deg);
 
 	}
 	
@@ -82,7 +88,9 @@ public class StoryWeelRotation : MonoBehaviour
 	{
 		// rotating flag
 		_isRotating = true;
-		
+
+		startLerp = true;
+
 		// store mouse
 		_mouseReference = Input.mousePosition;
 	}
