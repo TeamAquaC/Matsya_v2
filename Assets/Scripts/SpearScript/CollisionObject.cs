@@ -14,13 +14,16 @@ public class CollisionObject : MonoBehaviour {
 		//send fish value to man in the boat
 		GameObject.Find ("ManInTheBoatObject").gameObject.SendMessage("FishKilled",fishValue);
 
-		//send fish killed to level changer
-		GameObject.Find ("LevelManager").gameObject.SendMessage("FishKilled");
-
 		//kill fish
 		Destroy(coll.gameObject);
 		Destroy (transform.parent.gameObject);
 		Debug.Log("Collision");
+
+		//send fish killed to level changer
+		GameObject.Find ("LevelManager").gameObject.SendMessage("FishKilled");
+
+	
+
 			
 
 	}
