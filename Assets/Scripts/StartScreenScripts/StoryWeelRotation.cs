@@ -26,6 +26,9 @@ public class StoryWeelRotation : MonoBehaviour
 	void Start ()
 	{
 		rigBody = gameObject.GetComponent<Rigidbody2D> ();
+
+		// 
+		rotationGoal = 18;
 	}
 	
 	void Update()
@@ -61,7 +64,7 @@ public class StoryWeelRotation : MonoBehaviour
 			_mouseReference = Input.mousePosition;
 		}
 		else if(rigBody.angularVelocity < angVelThresholdFinalPosition && rigBody.angularVelocity > -angVelThresholdFinalPosition  )
-		{
+		{// if the spinn speet falls under the threshold the weel is lerped to the closest level.
 			if(startLerp){
 				startLerp = false;
 				StartLerp();
@@ -69,10 +72,8 @@ public class StoryWeelRotation : MonoBehaviour
 
 			float applyRotation = Mathf.LerpAngle(transform.eulerAngles.z, rotationGoal, Time.deltaTime * 2f);
 			transform.eulerAngles = new Vector3(0f,0f, applyRotation);
-
-
 		}
-		Debug.Log("RotationGoal" + rotationGoal+ "current rot: "+ transform.eulerAngles.z * Mathf.Rad2Deg);
+//		Debug.Log("RotationGoal" + rotationGoal+ "current rot: "+ transform.eulerAngles.z * Mathf.Rad2Deg);
 	}
 
 	void StartLerp()
@@ -80,8 +81,7 @@ public class StoryWeelRotation : MonoBehaviour
 		rigBody.angularVelocity = 0f;
 		closestLevel = gameObject.GetComponent<LevelSelecter>().levelSelected;
 		rotationGoal = closestLevel * 36f - 18f;
-		Debug.Log("RotationGoal" + rotationGoal+ "current rot: "+ transform.rotation.z * Mathf.Rad2Deg);
-
+//		Debug.Log("RotationGoal" + rotationGoal+ "current rot: "+ transform.rotation.z * Mathf.Rad2Deg);
 	}
 	
 	void OnMouseDown()
