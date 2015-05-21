@@ -20,7 +20,7 @@ public class CollisionObject : MonoBehaviour {
 		Debug.Log("Collision");
 
 		//send fish killed to level changer
-		GameObject.Find ("LevelChanger").gameObject.SendMessage("FishKilled");
+		GameObject.Find ("LevelManager").gameObject.SendMessage("FishKilled");
 
 	
 
