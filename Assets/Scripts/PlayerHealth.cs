@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ManInTheBoatScript : MonoBehaviour 
+public class PlayerHealth : MonoBehaviour 
 {
 
 

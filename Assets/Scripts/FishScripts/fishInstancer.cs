@@ -9,7 +9,7 @@ public class fishInstancer : MonoBehaviour {
 	public GameObject fish;
 	public GameObject tuna;
 	public int fishCount;
-	private ManInTheBoatScript manInTheBoatScript;
+	private PlayerHealth manInTheBoatScript;
 	float health;
 
 	// Use this for initialization
@@ -18,7 +18,7 @@ public class fishInstancer : MonoBehaviour {
 		spawnRate = 100.0f;
 
 		//Find man in the boat script.
-		manInTheBoatScript = GameObject.Find ("GameManager").GetComponent<ManInTheBoatScript> ();
+		manInTheBoatScript = GameObject.Find ("GameManager").GetComponent<PlayerHealth> ();
 		
 		if (GameObject.FindGameObjectsWithTag ("fish").Length < 2) {
 			spawn ();

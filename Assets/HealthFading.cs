@@ -9,7 +9,7 @@ public class HealthFading : MonoBehaviour {
 	private float alpha = 0.0f;
 	private float alphaOld = 0;
 	public float sharkTimer;
-	private ManInTheBoatScript manInTheBoatScript;
+	private PlayerHealth manInTheBoatScript;
 	float health;
 	public float sharkSpawnTime;
 	public GameObject shark;
@@ -17,7 +17,7 @@ public class HealthFading : MonoBehaviour {
 
 	void Start()
 	{
-		manInTheBoatScript = GameObject.Find ("GameManager").GetComponent<ManInTheBoatScript> ();
+		manInTheBoatScript = GameObject.Find ("GameManager").GetComponent<PlayerHealth> ();
 		sharkTimer = 0.0f;
 		sharkSpawnTime = 5.0f;
 	}
