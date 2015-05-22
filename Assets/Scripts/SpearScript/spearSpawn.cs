@@ -17,10 +17,6 @@ public class spearSpawn : MonoBehaviour {
 	public float spearSpeed;
 	GameObject [] indicClone = new GameObject[5];
 
-	// Use this for initialization
-	void Start () {
-	}
-	
 	// Update is called once per frame
 	void Update () {
 
@@ -30,7 +26,6 @@ public class spearSpawn : MonoBehaviour {
 		newSpawnRate = spawnRate;
 
 		//Get boat vector direction at time of instantiation.
-
 		randomDirection = boatFront.transform.position - boatBack.transform.position;
 		timer += Time.deltaTime;
 
@@ -58,20 +53,17 @@ public class spearSpawn : MonoBehaviour {
 	void spawn(int count) 
 	{
 		//Spear instantiated velocity relative to selected game speed.
-
 		speedChange speedScript = gameObject.GetComponent<speedChange>();
 		float speedModSpear = speedScript.speedMod;
 
 		//Instantiate spear at origin according to boat's direction.
-
-		if (spearClone [count] != null) {
+		if (spearClone [count] != null) 
+		{
 			Object.Destroy( spearClone[count]);
-
 		}
 		t = Quaternion.LookRotation(randomDirection);
 		spearClone[count] = (GameObject)Instantiate (g, new Vector3 (0, 0, 0), t);
 		spearClone[count].GetComponent<Rigidbody>().velocity = speedModSpear * randomDirection * spearSpeed;
-	
 	}
 
 }
