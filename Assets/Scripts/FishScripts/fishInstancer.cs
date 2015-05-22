@@ -18,7 +18,7 @@ public class fishInstancer : MonoBehaviour {
 		spawnRate = 100.0f;
 
 		//Find man in the boat script.
-		manInTheBoatScript = GameObject.Find ("GameManager").GetComponent<ManInTheBoatScript> ();
+		manInTheBoatScript = GameObject.Find ("ManInTheBoatObject").GetComponent<ManInTheBoatScript> ();
 		
 		if (GameObject.FindGameObjectsWithTag ("fish").Length < 2) {
 			spawn ();

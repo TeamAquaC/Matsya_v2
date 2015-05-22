@@ -17,7 +17,7 @@ public class HealthFading : MonoBehaviour {
 
 	void Start()
 	{
-		manInTheBoatScript = GameObject.Find ("GameManager").GetComponent<ManInTheBoatScript> ();
+		manInTheBoatScript = GameObject.Find ("ManInTheBoatObject").GetComponent<ManInTheBoatScript> ();
 		sharkTimer = 0.0f;
 		sharkSpawnTime = 5.0f;
 	}
