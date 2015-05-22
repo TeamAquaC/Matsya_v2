@@ -78,12 +78,15 @@ public class RingManagerScript : MonoBehaviour {
 			{
 				ringList = ringList.OrderBy (x => x.transform.localScale.x).ToList (); //Sort all rings small to large.
 				 
+			if(Time.deltaTime != 0)
+			{
 				foreach (GameObject go in ringList) {									//Scale all the rings by a given factor
 					float s = go.transform.localScale.x; 
 					s -= s / ringScaleSpeed; 
 					Vector3 xyzS = new Vector3 (s, s, s);
 					go.transform.localScale = xyzS;
 				}
+			}
 
 				if (ringList [0].transform.localScale.x < .33f) {						//If ring is too small destroy it
 					Destroy (ringList[0].gameObject);
