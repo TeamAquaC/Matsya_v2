@@ -58,64 +58,104 @@ public class RingRotation : MonoBehaviour
 			{
 				if (_clickDrag.x > 0.5) //screenpoint it in top right quarter of the screen
 				{
-					_rotation.z = (_mouseOffset.y + -_mouseOffset.x) * _sensitivity;
+					foreach (Transform child in gameObject.transform )
+					{
+						if(child.gameObject.tag=="visRing")
+						{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque((_mouseOffset.y + -_mouseOffset.x) * _sensitivity);		
+					
+						}
+						if(child.gameObject.tag=="fish")
+						{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque((_mouseOffset.y + -_mouseOffset.x) * _sensitivity);
+						}
+							
+						if(child.gameObject.tag=="sharkRing")
+						{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque((_mouseOffset.y + -_mouseOffset.x) * _sensitivity);
+						}
+							
+						if(child.gameObject.tag=="tunaRing")
+						{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque((_mouseOffset.y + -_mouseOffset.x) * _sensitivity);
+						}
+					}
 				}
 				else // screenpoint is in top left of the screen
 				{
-					_rotation.z = - (_mouseOffset.y + _mouseOffset.x) * _sensitivity;
+					foreach (Transform child in gameObject.transform )
+					{
+						if(child.gameObject.tag=="visRing")
+						{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque(- (_mouseOffset.y + _mouseOffset.x) * _sensitivity);		
+							
+						}
+						if(child.gameObject.tag=="fish")
+						{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque(- (_mouseOffset.y + _mouseOffset.x) * _sensitivity);
+						}
+						
+						if(child.gameObject.tag=="sharkRing")
+						{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque(- (_mouseOffset.y + _mouseOffset.x) * _sensitivity);
+						}
+						
+						if(child.gameObject.tag=="tunaRing")
+						{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque(- (_mouseOffset.y + _mouseOffset.x) * _sensitivity);
+						}
+					}
 				}
 			} else if (_clickDrag.x > 0.5) //screenpoint is in the bottom right
 			{
-				_rotation.z = (_mouseOffset.y + _mouseOffset.x) * _sensitivity;
+				foreach (Transform child in gameObject.transform )
+				{
+					if(child.gameObject.tag=="visRing")
+					{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque((_mouseOffset.y + _mouseOffset.x) * _sensitivity);		
+							
+					}
+
+					if(child.gameObject.tag=="fish")	
+					{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque((_mouseOffset.y + _mouseOffset.x) * _sensitivity);
+					}
+						
+					if(child.gameObject.tag=="sharkRing")
+					{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque((_mouseOffset.y + _mouseOffset.x) * _sensitivity);
+					}
+						
+					if(child.gameObject.tag=="tunaRing")
+					{
+							child.transform.GetComponent<Rigidbody2D> ().AddTorque((_mouseOffset.y + _mouseOffset.x) * _sensitivity);
+					}
+				}
+
 			}
 			else //screenpoint is in the bottom left
 			{
-				_rotation.z = (-_mouseOffset.y + _mouseOffset.x) * _sensitivity;
-			}
-
-			//Set rotation equal to current input, or to maxRotation if player input too fast.
-
-			if (_rotation.z > rotationMax){
-				gameRotationZ = rotationMax;
-			}else if(_rotation.z < -rotationMax){
-				gameRotationZ = -rotationMax;
-			}else{
-				gameRotationZ =_rotation.z;
-			}
-
-//			//Use this instead if we want to remove rotation speed cap.
-//
-//			gameRotationZ =_rotation.z;
-
-			//Rotate fish in ring.
-			
-			foreach (Transform child in gameObject.transform )
-			{
-				if(child.gameObject.tag=="visRing")
+				foreach (Transform child in gameObject.transform )
 				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 10*Time.deltaTime);
-					child.transform.Rotate(new Vector3(0,0,gameRotationZ));
-				}
-
-				if(child.gameObject.tag=="fish")
-				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 9*Time.deltaTime);
-					//Rotate fish slightly slower than ring.
-					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.8f);
-				}
-
-				if(child.gameObject.tag=="sharkRing")
-				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 7*Time.deltaTime);
-					//Rotate sharks even slower.
-					child.transform.Rotate(new Vector3(0,0,gameRotationZ)*0.6f);
-				}
-
-				if(child.gameObject.tag=="tunaRing")
-				{
-					gameRotationZ = Mathf.Lerp (rotationOld, gameRotationZ, 10*Time.deltaTime);
-					//Rotate tuna slightly faster than fish.
-					child.transform.Rotate(new Vector3(0,0,gameRotationZ));
+					if(child.gameObject.tag=="visRing")
+					{
+					child.transform.GetComponent<Rigidbody2D> ().AddTorque((-_mouseOffset.y + _mouseOffset.x) * _sensitivity);				
+					}
+						
+					if(child.gameObject.tag=="fish")	
+					{
+						child.transform.GetComponent<Rigidbody2D> ().AddTorque((-_mouseOffset.y + _mouseOffset.x) * _sensitivity);
+					}
+						
+					if(child.gameObject.tag=="sharkRing")
+					{
+						child.transform.GetComponent<Rigidbody2D> ().AddTorque((-_mouseOffset.y + _mouseOffset.x) * _sensitivity);
+					}
+						
+					if(child.gameObject.tag=="tunaRing")
+					{
+						child.transform.GetComponent<Rigidbody2D> ().AddTorque((-_mouseOffset.y + _mouseOffset.x) * _sensitivity);
+					}
 				}
 			}
 
