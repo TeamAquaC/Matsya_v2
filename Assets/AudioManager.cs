@@ -40,11 +40,20 @@ public class AudioManager : MonoBehaviour {
 		{
 		case 0:
 			audioSource.clip = menuMusic;
+			audioSource.Play();
 			break;
 		case 1:
 			audioSource.clip = menuMusic;
+			audioSource.Play();
 			break;
 		case 2:
+			audioSource.Stop();
+			Debug.Log(inGameMusic);
+			audioSource.clip = inGameMusic;
+			audioSource.Play();
+			Debug.Log(audioSource.isPlaying);
+			break;
+		case 3:
 			audioSource.Stop();
 			Debug.Log(inGameMusic);
 			audioSource.clip = inGameMusic;
