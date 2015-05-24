@@ -6,7 +6,6 @@ public class LevelChanger : MonoBehaviour {
 	public int currentLevel;
 	int deadFishVal;
 	private bool gameOver = false;
-
 	//Keep LevelChanger around.
 	void Awake () {
 		DontDestroyOnLoad (transform.gameObject);
@@ -24,11 +23,12 @@ public class LevelChanger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (deadFishVal > 2 && currentLevel == 1) {
+		if (deadFishVal == 3 && currentLevel == 1) {
 			Debug.Log ("TEST");
 			StartCoroutine (StoryWheelSuccess ());
 			currentLevel = 2;
 			deadFishVal=0;
+			MasterGameManager.LevelCompleted(1);
 		}
 			if (currentLevel==2 && deadFishVal > 2)
 			{

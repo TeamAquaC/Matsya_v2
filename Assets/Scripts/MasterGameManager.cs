@@ -41,7 +41,7 @@ public class MasterGameManager : MonoBehaviour
 	}
 
 	//call this function to unlock the next higher level on the wheel
-	public void LevelCompleted(int _levelNumber)
+	public static void LevelCompleted(int _levelNumber)
 	{
 		//set finished level to completed
 		Levels [_levelNumber - 1].completed = true;
