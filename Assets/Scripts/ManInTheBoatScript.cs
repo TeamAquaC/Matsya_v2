@@ -23,7 +23,6 @@ public class ManInTheBoatScript : MonoBehaviour
 
 	void Start()
 	{
-		health = 50.0f;
 	}
 
 	void Update()
@@ -49,7 +48,7 @@ public class ManInTheBoatScript : MonoBehaviour
 			}
 
 			//handels what happens when the health changes
-			HealthIndicator ();
+			//HealthIndicator ();
 		}
 	}
 

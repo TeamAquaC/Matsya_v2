@@ -15,7 +15,7 @@ public class fishStats : MonoBehaviour {
 		if (gameObject.tag == "tuna") {
 			fishValue = 7.0f;
 		}
-		if (gameObject.tag == "angelFish") {
+		if (gameObject.tag == "shark") {
 			fishValue = 15.0f;
 		}
 	}

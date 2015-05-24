@@ -64,7 +64,7 @@ public class fishInstancer : MonoBehaviour {
 
 	}
 	
-	void spawn() 
+	public void spawn() 
 	{
 		//Get ringhomes current scale.
 		float currentScale = gameObject.transform.parent.transform.localScale.x;
@@ -77,7 +77,7 @@ public class fishInstancer : MonoBehaviour {
 		newFish.transform.localScale *= 1.75f*currentScale;
 	}
 
-	void tunaSpawn() 
+	public void tunaSpawn() 
 	{
 		//Get ringhomes current scale.
 		float currentScale = gameObject.transform.parent.transform.localScale.x;

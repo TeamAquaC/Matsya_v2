@@ -5,7 +5,13 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null; 
 	public GameObject ringManager;
-
+	public int currentLevel;
+	int AnyDeadFishVal;
+	int TunaDeadFishVal;
+	int AngelDeadFishVal;
+	int SharkDeadFishVal;
+	private bool gameOver = false;
+	ManInTheBoatScript man;
 	// Use this for initialization
 	void Awake ()
 	{
@@ -21,13 +27,84 @@ public class GameManager : MonoBehaviour {
 		//Sets this to not be destroyed when reloading scene
 //		DontDestroyOnLoad(gameObject);
 
+
 		GameObject instanc = Instantiate (ringManager, new Vector3(0f,0f,0f), Quaternion.identity) as GameObject;
 		instanc.transform.SetParent(transform);
+		
+
+
+		man = GameObject.Find("ManInTheBoatObject").GetComponent<ManInTheBoatScript>();
+		Debug.Log ("Which level" + (Application.loadedLevel - 1));
+		currentLevel = Application.loadedLevel - 1;
+		if (currentLevel == 1)
+			man.health = 50.0f;
+		if (currentLevel == 2)
+			man.health = 50.0f;
+		if (currentLevel == 3)
+			man.health = 90.0f;
+		
 	}
-	
+
+	void Start()
+	{
+
+		Camera.main.orthographicSize = 6;
+		AnyDeadFishVal = 0;
+		TunaDeadFishVal = 0;
+		AngelDeadFishVal = 0;
+		SharkDeadFishVal = 0;
+	}
 	// Update is called once per frame
 	void Update () 
 	{
+		if (AnyDeadFishVal == 3 && currentLevel == 1) 
+		{
+			StartCoroutine (StoryWheelSuccess ());
+			AnyDeadFishVal=0;
+			TunaDeadFishVal = 0;
+			AngelDeadFishVal = 0;
+			SharkDeadFishVal = 0;
+			MasterGameManager.LevelCompleted(1);
+		}
+		if (currentLevel==2 && AngelDeadFishVal == 3)
+		{
+			StartCoroutine (StoryWheelSuccess ());
+			AnyDeadFishVal=0;
+			TunaDeadFishVal = 0;
+			AngelDeadFishVal = 0;
+			SharkDeadFishVal = 0;
+			MasterGameManager.LevelCompleted(2);
+
+		}
+		if (currentLevel == 3 && man.health < 70.0f) 
+		{
+			StartCoroutine (StoryWheelSuccess ());
+			AnyDeadFishVal=0;
+			TunaDeadFishVal = 0;
+			AngelDeadFishVal = 0;
+			SharkDeadFishVal = 0;
+			MasterGameManager.LevelCompleted(3);
+	    }
+
+}
+	void AnyFishKilled(){
+		AnyDeadFishVal ++;
+	}
+	void TunaFishKilled(){
+		TunaDeadFishVal ++;
+	}
+	void AngelFishKilled(){
+		AngelDeadFishVal ++;
+	}
+	void SharkFishKilled(){
+		SharkDeadFishVal ++;
+	}
 	
+	
+	public IEnumerator StoryWheelSuccess()
+	{
+		float fadeTime = GameObject.Find ("Main Camera").GetComponent<SceneFading> ().BeginFade (1);
+		yield return new WaitForSeconds(fadeTime);
+		Application.LoadLevel ("StoryWeelScene");
 	}
 }
