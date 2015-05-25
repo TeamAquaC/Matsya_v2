@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 	int SharkDeadFishVal;
 	private bool gameOver = false;
 	ManInTheBoatScript man;
+	RingManagerScript ring;
 	// Use this for initialization
 	void Awake ()
 	{
@@ -34,14 +35,17 @@ public class GameManager : MonoBehaviour {
 
 
 		man = GameObject.Find("ManInTheBoatObject").GetComponent<ManInTheBoatScript>();
+		ring = ringManager.GetComponent<RingManagerScript> ();
 		Debug.Log ("Which level" + (Application.loadedLevel - 1));
 		currentLevel = Application.loadedLevel - 1;
 		if (currentLevel == 1)
 			man.health = 50.0f;
 		if (currentLevel == 2)
-			man.health = 50.0f;
+			man.health = 20.0f;
 		if (currentLevel == 3)
 			man.health = 90.0f;
+		if (currentLevel == 4)
+			man.health = 65.0f;
 		
 	}
 
@@ -69,23 +73,32 @@ public class GameManager : MonoBehaviour {
 		if (currentLevel==2 && AngelDeadFishVal == 3)
 		{
 			StartCoroutine (StoryWheelSuccess ());
-			AnyDeadFishVal=0;
+			AnyDeadFishVal = 0;
 			TunaDeadFishVal = 0;
 			AngelDeadFishVal = 0;
 			SharkDeadFishVal = 0;
 			MasterGameManager.LevelCompleted(2);
 
 		}
-		if (currentLevel == 3 && man.health < 70.0f) 
+		if (currentLevel == 3 && man.health <= 50.0f) 
 		{
 			StartCoroutine (StoryWheelSuccess ());
-			AnyDeadFishVal=0;
+			AnyDeadFishVal = 0;
 			TunaDeadFishVal = 0;
 			AngelDeadFishVal = 0;
 			SharkDeadFishVal = 0;
 			MasterGameManager.LevelCompleted(3);
 	    }
-
+		if (currentLevel == 4 && SharkDeadFishVal == 1 
+		    && ring.DestroyedRings >= 3)
+		{
+			StartCoroutine (StoryWheelSuccess ());
+			AnyDeadFishVal = 0;
+			TunaDeadFishVal = 0;
+			AngelDeadFishVal = 0;
+			SharkDeadFishVal = 0;
+			MasterGameManager.LevelCompleted(4);
+		}
 }
 	void AnyFishKilled(){
 		AnyDeadFishVal ++;
