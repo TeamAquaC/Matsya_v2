@@ -35,8 +35,8 @@ public class GameManager : MonoBehaviour {
 
 
 		man = GameObject.Find("ManInTheBoatObject").GetComponent<ManInTheBoatScript>();
-		ring = ringManager.GetComponent<RingManagerScript> ();
-		Debug.Log ("Which level" + (Application.loadedLevel - 1));
+		ring = instanc.GetComponent<RingManagerScript> ();
+		Debug.Log ("We are in level: " + (Application.loadedLevel - 1));
 		currentLevel = Application.loadedLevel - 1;
 		if (currentLevel == 1)
 			man.health = 50.0f;
@@ -89,8 +89,7 @@ public class GameManager : MonoBehaviour {
 			SharkDeadFishVal = 0;
 			MasterGameManager.LevelCompleted(3);
 	    }
-		if (currentLevel == 4 && SharkDeadFishVal == 1 
-		    && ring.DestroyedRings >= 3)
+		if (currentLevel == 4 && SharkDeadFishVal >= 1 && ring.destroyedRings >= 3)
 		{
 			StartCoroutine (StoryWheelSuccess ());
 			AnyDeadFishVal = 0;
@@ -98,6 +97,15 @@ public class GameManager : MonoBehaviour {
 			AngelDeadFishVal = 0;
 			SharkDeadFishVal = 0;
 			MasterGameManager.LevelCompleted(4);
+		}
+		if (currentLevel == 5 && ring.destroyedRings >= 5)
+		{
+			StartCoroutine (StoryWheelSuccess ());
+			AnyDeadFishVal = 0;
+			TunaDeadFishVal = 0;
+			AngelDeadFishVal = 0;
+			SharkDeadFishVal = 0;
+			MasterGameManager.LevelCompleted(5);
 		}
 }
 	void AnyFishKilled(){
@@ -111,6 +119,7 @@ public class GameManager : MonoBehaviour {
 	}
 	void SharkFishKilled(){
 		SharkDeadFishVal ++;
+		Debug.Log ("Shark Killed: "+ SharkDeadFishVal);
 	}
 	
 	

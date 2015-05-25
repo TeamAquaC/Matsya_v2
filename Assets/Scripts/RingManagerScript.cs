@@ -20,7 +20,7 @@ public class RingManagerScript : MonoBehaviour {
 	private float fadeInThreshold = 1f;
 	public GameObject sharkSpawnRing;
 	Vector3 vec;
-	public int DestroyedRings = 0;
+	public int destroyedRings = 0;
 	public float FadeInThreshold
 	{
 		get
@@ -93,7 +93,8 @@ public class RingManagerScript : MonoBehaviour {
 			    {						                                    //If ring is too small destroy it
 					Destroy (ringList[0].gameObject);
 					ringList.RemoveAt (0);
-				    DestroyedRings ++;
+				    destroyedRings ++;
+					Debug.Log ("Destroyed Rings: "+ destroyedRings);
 				}
 				if (ringList [ringList.Count - 1].transform.localScale.x < 1.4f) 		//If the lagest ring is at a specific scale add a new big ring
 				{
