@@ -35,8 +35,6 @@ public class MasterGameManager : MonoBehaviour
 				Levels[i] = new Level(i+1, true, false);
 			else
 				Levels[i] = new Level(i+1, false, false);
-
-			Debug.Log (Levels[i].levelNumber);
 		}
 	}
 

@@ -22,7 +22,7 @@ public class RingRotation : MonoBehaviour
 	
 	void Start ()
 	{
-		_sensitivity = 0.5f;
+		_sensitivity = 0.05f;
 		_rotation = Vector3.zero;
 		rotationMax = 30f;
 
