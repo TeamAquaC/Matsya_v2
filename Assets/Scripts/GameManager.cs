@@ -46,6 +46,10 @@ public class GameManager : MonoBehaviour {
 			man.health = 90.0f;
 		if (currentLevel == 4)
 			man.health = 65.0f;
+		if (currentLevel == 5)
+			man.health = 50.0f;
+		if (currentLevel == 6)
+			man.health = 50.0f;
 		
 	}
 
@@ -106,6 +110,15 @@ public class GameManager : MonoBehaviour {
 			AngelDeadFishVal = 0;
 			SharkDeadFishVal = 0;
 			MasterGameManager.LevelCompleted(5);
+		}
+		if (currentLevel == 6 && SharkDeadFishVal>=3)
+		{
+			StartCoroutine (StoryWheelSuccess ());
+			AnyDeadFishVal = 0;
+			TunaDeadFishVal = 0;
+			AngelDeadFishVal = 0;
+			SharkDeadFishVal = 0;
+			MasterGameManager.LevelCompleted(6);
 		}
 }
 	void AnyFishKilled(){
