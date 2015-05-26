@@ -58,7 +58,7 @@ public class fishInstancer : MonoBehaviour {
 			if(gameObject.transform.parent.transform.localScale.x < 0.9 && 
 			   fishCount < 4 && this.transform.parent.transform.localScale.x > 0.5)
 			{
-				if (currentLevel == 2 && GameObject.FindGameObjectsWithTag ("tuna").Length > 2){
+				if (currentLevel == 2 && GameObject.FindGameObjectsWithTag ("tuna").Length > 1){
 					spawn();
 				}else{
 				if (health < 45.0f && GameObject.FindGameObjectsWithTag ("tuna").Length < 2) {
