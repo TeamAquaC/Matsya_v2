@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour {
 
 	private AudioSource audioSource;
 
+	private bool pauseAudio = false;
+
 	// Use this for initialization
 	void Awake () 
 	{
@@ -24,8 +26,9 @@ public class AudioManager : MonoBehaviour {
 	void Update () 
 	{
 
-		if (Input.GetKeyDown(KeyCode.M))
-			audioSource.Pause ();
+		if (Input.GetKeyDown(KeyCode.M)){
+				audioSource.mute = !audioSource.mute;
+		}
 //		if (Level < 2)
 //			musicPlayer.clip = menuMusic;
 //		if (Level >= 2)

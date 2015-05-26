@@ -9,7 +9,7 @@ public class RingRotation : MonoBehaviour
 	private Vector3 _mouseReference;
 	private Vector3 _mouseOffset;
 	private Vector3 _rotation;
-	private bool _isRotating;
+	public bool _isRotating;
 	private Vector3 _clickDrag;
 	private float rotationOld;
 	private Vector3 ringRotation;
