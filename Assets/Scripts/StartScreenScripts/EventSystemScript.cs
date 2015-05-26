@@ -8,15 +8,16 @@ public class EventSystemScript : MonoBehaviour {
 
 	public void LoadStoryWheelScene()
 	{
+		//unpause the game so the fade can take place
+		if (gamePaused) {
+			gamePaused = false;
+			Time.timeScale = 1;
+		}
 		StartCoroutine (LoadLevel());
 	}
 
 	IEnumerator LoadLevel()
 	{
-		//unpause the game so the fade can take place
-		if (gamePaused)
-			gamePaused = false;
-
 		//Start fading out sequence bevor loading new level and wait until it is finished
 		float fadeTime = GameObject.Find ("Main Camera").GetComponent<SceneFading> ().BeginFade (1);
 		Debug.Log ("FadingTime: " + fadeTime);
