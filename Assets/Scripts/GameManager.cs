@@ -23,40 +23,61 @@ public class GameManager : MonoBehaviour {
 		//If instance already exists and it's not this:
 		else if (instance != this)
 			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-			Destroy(gameObject);    
+			Destroy (gameObject);    
 		
 		//Sets this to not be destroyed when reloading scene
 //		DontDestroyOnLoad(gameObject);
 
 
-		GameObject instanc = Instantiate (ringManager, new Vector3(0f,0f,0f), Quaternion.identity) as GameObject;
-		instanc.transform.SetParent(transform);
+		GameObject instanc = Instantiate (ringManager, new Vector3 (0f, 0f, 0f), Quaternion.identity) as GameObject;
+		instanc.transform.SetParent (transform);
 		
 
 
-		man = GameObject.Find("ManInTheBoatObject").GetComponent<ManInTheBoatScript>();
+		man = GameObject.Find ("ManInTheBoatObject").GetComponent<ManInTheBoatScript> ();
 		ring = instanc.GetComponent<RingManagerScript> ();
 		Debug.Log ("We are in level: " + (Application.loadedLevel - 1));
 		currentLevel = Application.loadedLevel - 1;
-		if (currentLevel == 1)
+		if (currentLevel == 1) 
+		{
 			man.health = 50.0f;
-		if (currentLevel == 2)
+			Camera.main.orthographicSize = 6;
+		}
+	
+		if (currentLevel == 2) 
+		{
 			man.health = 20.0f;
+			Camera.main.orthographicSize = 6;
+		}
 		if (currentLevel == 3)
+		{
 			man.health = 90.0f;
-		if (currentLevel == 4)
+			Camera.main.orthographicSize = 8.0f;
+		}
+		if (currentLevel == 4) 
+		{
 			man.health = 65.0f;
-		if (currentLevel == 5)
+			Camera.main.orthographicSize = 8.0f;
+
+		}
+		if (currentLevel == 5) 
+		{
 			man.health = 50.0f;
-		if (currentLevel == 6)
+			Camera.main.orthographicSize = 8.0f;
+
+		}
+		if (currentLevel == 6) 
+		{
 			man.health = 50.0f;
-		
+			Camera.main.orthographicSize = 8.0f;
+
+		}
 	}
 
 	void Start()
 	{
 
-		Camera.main.orthographicSize = 6;
+
 		AnyDeadFishVal = 0;
 		TunaDeadFishVal = 0;
 		AngelDeadFishVal = 0;
@@ -132,7 +153,6 @@ public class GameManager : MonoBehaviour {
 	}
 	void SharkFishKilled(){
 		SharkDeadFishVal ++;
-		Debug.Log ("Shark Killed: "+ SharkDeadFishVal);
 	}
 	
 	
