@@ -6,7 +6,7 @@ public class EventSystemScript : MonoBehaviour {
 	public int gameLevelToLoad;
 	private bool gamePaused = false;
 
-	public void LoadGameLevel()
+	public void LoadStoryWheelScene()
 	{
 		StartCoroutine (LoadLevel());
 	}
