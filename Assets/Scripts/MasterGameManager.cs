@@ -7,6 +7,7 @@ public class MasterGameManager : MonoBehaviour
 
 	public static MasterGameManager instance = null;
 	public static Level[] Levels = new Level[10];
+	public static int nextLevel = 1;
 
 	// Use this for initialization
 	void Awake () 
@@ -41,6 +42,7 @@ public class MasterGameManager : MonoBehaviour
 	//call this function to unlock the next higher level on the wheel
 	public static void LevelCompleted(int _levelNumber)
 	{
+		nextLevel = _levelNumber + 1;
 		//set finished level to completed
 		Levels [_levelNumber - 1].completed = true;
 
