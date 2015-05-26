@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
 	
 		if (currentLevel == 2) 
 		{
-			man.health = 20.0f;
+			man.health = 30.0f;
 			Camera.main.orthographicSize = 6;
 		}
 		if (currentLevel == 3)
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (AnyDeadFishVal == 3 && currentLevel == 1) 
+		if (AnyDeadFishVal >= 3 && currentLevel == 1) 
 		{
 			StartCoroutine (StoryWheelSuccess ());
 			AnyDeadFishVal=0;

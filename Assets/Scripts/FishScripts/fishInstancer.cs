@@ -11,6 +11,7 @@ public class fishInstancer : MonoBehaviour {
 	public int fishCount;
 	private ManInTheBoatScript manInTheBoatScript;
 	float health;
+	private int currentLevel;
 
 	// Use this for initialization
 	void Start () {
@@ -19,10 +20,19 @@ public class fishInstancer : MonoBehaviour {
 
 		//Find man in the boat script.
 		manInTheBoatScript = GameObject.Find ("ManInTheBoatObject").GetComponent<ManInTheBoatScript> ();
-		
+		currentLevel = Application.loadedLevel - 1;
+
+
+
 		if (GameObject.FindGameObjectsWithTag ("fish").Length < 2) {
+			if (currentLevel == 2)
+			{
+				tunaSpawn();
+				tunaSpawn ();
+			}else{
 			spawn ();
 			spawn ();
+			}
 			Debug.Log ("Hello?");
 		} else if (GameObject.FindGameObjectsWithTag ("fish").Length < 3) {
 			spawn();
@@ -48,6 +58,9 @@ public class fishInstancer : MonoBehaviour {
 			if(gameObject.transform.parent.transform.localScale.x < 0.9 && 
 			   fishCount < 4 && this.transform.parent.transform.localScale.x > 0.5)
 			{
+				if (currentLevel == 2 && GameObject.FindGameObjectsWithTag ("tuna").Length > 2){
+					spawn();
+				}else{
 				if (health < 45.0f && GameObject.FindGameObjectsWithTag ("tuna").Length < 2) {
 					tunaSpawn();
 				}else if (health < 30.0f && GameObject.FindGameObjectsWithTag ("tuna").Length < 4) {
@@ -56,6 +69,7 @@ public class fishInstancer : MonoBehaviour {
 					tunaSpawn();
 				}else{
 					spawn();
+				}
 				}
 				timer= 0.0f; 
 			}
