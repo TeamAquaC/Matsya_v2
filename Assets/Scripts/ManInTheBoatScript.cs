@@ -15,10 +15,11 @@ public class ManInTheBoatScript : MonoBehaviour
 	private bool gameOver = false;
 
 	private TextMesh healthBarText;
-
+	GameManager game;
 	void Awake()
 	{
 		healthBarText = gameObject.GetComponent<TextMesh>();
+		game = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 	}
 
 	void Start()
@@ -67,6 +68,10 @@ public class ManInTheBoatScript : MonoBehaviour
 	{
 		gameOver = true;
 		Debug.Log ("You suck");
+		game.AngelDeadFishVal = 0;
+		game.AnyDeadFishVal = 0;
+		game.TunaDeadFishVal = 0;
+		game.SharkDeadFishVal = 0;
 		StartCoroutine( LoadStoryWeelScene ());
 	}
 
@@ -74,6 +79,10 @@ public class ManInTheBoatScript : MonoBehaviour
 	{
 		gameOver = true;
 		Debug.Log ("You fat");
+		game.AngelDeadFishVal = 0;
+		game.AnyDeadFishVal = 0;
+		game.TunaDeadFishVal = 0;
+		game.SharkDeadFishVal = 0;	
 		StartCoroutine( LoadStoryWeelScene ());
 	}
 

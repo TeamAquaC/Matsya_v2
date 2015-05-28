@@ -29,11 +29,12 @@ public class fishInstancer : MonoBehaviour {
 			{
 				tunaSpawn();
 				tunaSpawn ();
-			}else{
+			}
+			else
+			{
 			spawn ();
 			spawn ();
 			}
-			Debug.Log ("Hello?");
 		} else if (GameObject.FindGameObjectsWithTag ("fish").Length < 3) {
 			spawn();
 		}
@@ -42,6 +43,9 @@ public class fishInstancer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (currentLevel == 7)
+			spawnRate = 5.0f;
+		else
 		spawnRate = gameObject.transform.parent.transform.localScale.x * 15;
 
 		timer += Time.deltaTime;
@@ -55,12 +59,19 @@ public class fishInstancer : MonoBehaviour {
 		if (timer >= spawnRate) 
 		{
 
-			if(gameObject.transform.parent.transform.localScale.x < 0.9 && 
+			if(gameObject.transform.parent.transform.localScale.x < 0.95 && 
 			   fishCount < 4 && this.transform.parent.transform.localScale.x > 0.5)
 			{
-				if (currentLevel == 2 && GameObject.FindGameObjectsWithTag ("tuna").Length > 1){
+				if (currentLevel == 2 && GameObject.FindGameObjectsWithTag ("tuna").Length > 1)
+				{
 					spawn();
-				}else{
+				}
+				else if(currentLevel == 7 && gameObject.transform.parent.transform.localScale.x > 0.75)
+				{
+					tunaSpawn();
+				}
+				else if(currentLevel !=7)
+				{
 				if (health < 45.0f && GameObject.FindGameObjectsWithTag ("tuna").Length < 2) {
 					tunaSpawn();
 				}else if (health < 30.0f && GameObject.FindGameObjectsWithTag ("tuna").Length < 4) {
@@ -71,6 +82,9 @@ public class fishInstancer : MonoBehaviour {
 					spawn();
 				}
 				}
+				else
+					spawn();
+
 				timer= 0.0f; 
 			}
 

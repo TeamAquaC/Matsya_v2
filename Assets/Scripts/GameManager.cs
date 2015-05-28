@@ -6,10 +6,10 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance = null; 
 	public GameObject ringManager;
 	public int currentLevel;
-	int AnyDeadFishVal;
-	int TunaDeadFishVal;
-	int AngelDeadFishVal;
-	int SharkDeadFishVal;
+	public int AnyDeadFishVal;
+	public int TunaDeadFishVal;
+	public int AngelDeadFishVal;
+	public int SharkDeadFishVal;
 	private bool gameOver = false;
 	ManInTheBoatScript man;
 	RingManagerScript ring;
@@ -71,6 +71,12 @@ public class GameManager : MonoBehaviour {
 			man.health = 50.0f;
 			Camera.main.orthographicSize = 8.0f;
 
+		}
+		if (currentLevel == 7) 
+		{
+			man.health = 60.0f;
+			Camera.main.orthographicSize = 8.0f;
+			
 		}
 	}
 
@@ -140,6 +146,15 @@ public class GameManager : MonoBehaviour {
 			AngelDeadFishVal = 0;
 			SharkDeadFishVal = 0;
 			MasterGameManager.LevelCompleted(6);
+		}
+		if (currentLevel == 7 && TunaDeadFishVal>=3)
+		{
+			StartCoroutine (StoryWheelSuccess ());
+			AnyDeadFishVal = 0;
+			TunaDeadFishVal = 0;
+			AngelDeadFishVal = 0;
+			SharkDeadFishVal = 0;
+			MasterGameManager.LevelCompleted(7);
 		}
 }
 	void AnyFishKilled(){
