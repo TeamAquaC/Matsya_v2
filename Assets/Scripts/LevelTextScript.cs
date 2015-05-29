@@ -87,6 +87,6 @@ public class LevelTextScript : MonoBehaviour {
 			guiText.text = "Level locked. Spin ring to an available level.";
 		}
 		
-		Debug.Log ("Current level is " + currentLev);
+//		Debug.Log ("Current level is " + currentLev);
 	}
 }

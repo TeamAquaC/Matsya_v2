@@ -26,7 +26,7 @@ public class StoryWeelRotation : MonoBehaviour
 	void Start ()
 	{
 		rigBody = gameObject.GetComponent<Rigidbody2D> ();
-		rotationGoal = MasterGameManager.nextLevel * 36f - 18f;
+		rotationGoal = MasterGameManager.currentLevel * 36f - 18f;
 	}
 	
 	void Update()

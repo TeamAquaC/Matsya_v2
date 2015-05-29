@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
 
 		man = GameObject.Find ("ManInTheBoatObject").GetComponent<ManInTheBoatScript> ();
 		ring = instanc.GetComponent<RingManagerScript> ();
-		Debug.Log ("We are in level: " + (Application.loadedLevel - 1));
+//		Debug.Log ("We are in level: " + (Application.loadedLevel - 1));
 		currentLevel = Application.loadedLevel - 1;
 		if (currentLevel == 1) 
 		{

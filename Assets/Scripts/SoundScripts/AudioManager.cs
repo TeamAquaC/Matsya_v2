@@ -58,12 +58,12 @@ public class AudioManager : MonoBehaviour {
 			if(audioSource.volume > volumeGoal - 0.1f)
 				turnVolumeUp = false;
 		}
-		Debug.Log ("Volume: " + audioSource.volume + " IsPlaying:" + audioSource.isPlaying);
+//		Debug.Log ("Volume: " + audioSource.volume + " IsPlaying:" + audioSource.isPlaying);
 	}
 
 	void OnLevelWasLoaded(int _level) 
 	{
-		Debug.Log ("Level: " + _level + "was loaded");
+//		Debug.Log ("Level: " + _level + "was loaded");
 
 		switch (_level) 
 		{
@@ -89,7 +89,7 @@ public class AudioManager : MonoBehaviour {
 			turnVolumeDown = true;
 			volumeGoal = 0f;
 		} else {
-			Debug.Log("Clips are the same.");
+//			Debug.Log("Clips are the same.");
 		}
 	}
 
