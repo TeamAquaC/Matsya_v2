@@ -156,6 +156,14 @@ public class GameManager : MonoBehaviour {
 			SharkDeadFishVal = 0;
 			MasterGameManager.LevelCompleted(7);
 		}
+
+		//Cheat function to end level successfully.
+		if(Input.GetKey(KeyCode.C)){
+			MasterGameManager.LevelCompleted(currentLevel);
+			StartCoroutine (StoryWheelSuccess ());
+		}
+
+
 }
 	void AnyFishKilled(){
 		AnyDeadFishVal ++;
