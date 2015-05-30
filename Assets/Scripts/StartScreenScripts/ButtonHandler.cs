@@ -16,4 +16,9 @@ public class ButtonHandler : MonoBehaviour
 		yield return new WaitForSeconds(fadeTime);
 		Application.LoadLevel ("StoryWeelScene");
 	}
+
+	public void Button_RestePlayerStats()
+	{
+		MasterGameManager.ResetPlayerStats ();
+	}
 }

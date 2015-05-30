@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 890fd4b52eaaaed48a22abbc7efb425f
-timeCreated: 1432329189
+timeCreated: 1432947282
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: RingSeg09_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,7 +38,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +49,17 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: RingSeg09_0
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1009
+        width: 920
+        height: 783
+      alignment: 9
+      pivot: {x: .996655762, y: .0029533843}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

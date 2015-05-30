@@ -100,7 +100,7 @@ public class MasterGameManager : MonoBehaviour
 		Debug.Log("In LoadPlayerStats function: "+currentLevel);
 	}
 
-	private static void ResetPlayerStats()
+	public static void ResetPlayerStats()
 	{
 		try {
 			PlayerPrefs.SetInt ("currentLevel", 1);
@@ -110,4 +110,6 @@ public class MasterGameManager : MonoBehaviour
 		}
 		SetUpLevels();
 	}
+
+
 }
