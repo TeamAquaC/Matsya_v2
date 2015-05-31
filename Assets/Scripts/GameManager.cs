@@ -78,6 +78,27 @@ public class GameManager : MonoBehaviour {
 			Camera.main.orthographicSize = 8.0f;
 			
 		}
+		if (currentLevel == 8) 
+		{
+			man.health = 50.0f;
+			Camera.main.orthographicSize = 8.0f;
+			Time.timeScale = 1.5f;
+			
+		}
+		if (currentLevel == 9) 
+		{
+			man.health = 50.0f;
+			Camera.main.orthographicSize = 8.0f;
+			Time.timeScale = 1.5f;
+			
+		}
+		if (currentLevel == 10) 
+		{
+			man.health = 50.0f;
+			Camera.main.orthographicSize = 8.0f;
+			Time.timeScale = 1.75f;
+			
+		}
 	}
 
 	void Start()
@@ -156,7 +177,33 @@ public class GameManager : MonoBehaviour {
 			SharkDeadFishVal = 0;
 			MasterGameManager.LevelCompleted(7);
 		}
-
+		if (currentLevel == 8 && TunaDeadFishVal>=3)
+		{
+			StartCoroutine (StoryWheelSuccess ());
+			AnyDeadFishVal = 0;
+			TunaDeadFishVal = 0;
+			AngelDeadFishVal = 0;
+			SharkDeadFishVal = 0;
+			MasterGameManager.LevelCompleted(8);
+		}
+		if (currentLevel == 9 && ring.destroyedRings>=5)
+		{
+			StartCoroutine (StoryWheelSuccess ());
+			AnyDeadFishVal = 0;
+			TunaDeadFishVal = 0;
+			AngelDeadFishVal = 0;
+			SharkDeadFishVal = 0;
+			MasterGameManager.LevelCompleted(9);
+		}
+		if (currentLevel == 9 && ring.destroyedRings>=10)
+		{
+			StartCoroutine (StoryWheelSuccess ());
+			AnyDeadFishVal = 0;
+			TunaDeadFishVal = 0;
+			AngelDeadFishVal = 0;
+			SharkDeadFishVal = 0;
+			MasterGameManager.LevelCompleted(10);
+		}
 		//Cheat function to end level successfully.
 		if(Input.GetKey(KeyCode.C)){
 			MasterGameManager.LevelCompleted(currentLevel);
