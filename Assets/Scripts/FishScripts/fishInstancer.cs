@@ -43,7 +43,9 @@ public class fishInstancer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (currentLevel == 7 && currentLevel ==8)
+		if (currentLevel == 7)
+			spawnRate = 5.0f;
+		else if (currentLevel == 8)
 			spawnRate = 5.0f;
 		else
 		spawnRate = gameObject.transform.parent.transform.localScale.x * 15;
@@ -66,7 +68,11 @@ public class fishInstancer : MonoBehaviour {
 				{
 					spawn();
 				}
-				else if(currentLevel == 7 && currentLevel == 8 && gameObject.transform.parent.transform.localScale.x > 0.75)
+				else if(currentLevel == 7 && gameObject.transform.parent.transform.localScale.x > 0.75)
+				{
+					tunaSpawn();
+				}
+				else if(currentLevel == 8 && gameObject.transform.parent.transform.localScale.x > 0.75)
 				{
 					tunaSpawn();
 				}
@@ -82,6 +88,7 @@ public class fishInstancer : MonoBehaviour {
 					spawn();
 				}
 				}
+
 				else
 					spawn();
 
