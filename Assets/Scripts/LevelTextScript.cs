@@ -29,16 +29,14 @@ public class LevelTextScript : MonoBehaviour {
 		}
 
 		if (currentLev == 2 && MasterGameManager.Levels [1].unlocked) {
-			guiText.text = "Careful that he does not starve, when he’s hungry, a lot of small fish will " +
-				"appear but he can only feed himself if you help him catch three larger fish.";
+			guiText.text = "There are many small fish, but he wil  catch three large fish to progress";
 		} else if (currentLev == 2){
 			guiText.text = "Level locked. Spin ring to an available level.";
 		}
 
 		
 		if (currentLev == 3 && MasterGameManager.Levels [2].unlocked) {
-			guiText.text = "He’s overfished and the sharks have come. They will " +
-				"leave on their own, but only if he stops fishing until they are gone.";
+			guiText.text = "He’s overfished and the sharks have come. Don't let any more fish be caught!";
 		} else if (currentLev == 3){
 			guiText.text = "Level locked. Spin ring to an available level.";
 		}
