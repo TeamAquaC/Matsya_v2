@@ -195,7 +195,7 @@ public class GameManager : MonoBehaviour {
 			SharkDeadFishVal = 0;
 			MasterGameManager.LevelCompleted(9);
 		}
-		if (currentLevel == 9 && ring.destroyedRings>=10)
+		if (currentLevel == 10 && ring.destroyedRings>=10)
 		{
 			StartCoroutine (StoryWheelSuccess ());
 			AnyDeadFishVal = 0;
