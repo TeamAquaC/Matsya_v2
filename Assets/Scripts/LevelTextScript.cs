@@ -31,7 +31,7 @@ public class LevelTextScript : MonoBehaviour {
 		}
 
 		if (currentLev == 2 && MasterGameManager.Levels [1].unlocked) {
-			guiText.text = "There are many small fish, but he will catch three large fish to progress";
+			guiText.text = "There are many small fish, but he needs to catch three large fish to avoid starvation";
 			guiText.fontSize = 100;
 		} else if (currentLev == 2){
 			guiText.text = "Level locked - Spin ring to an available level";
@@ -52,7 +52,7 @@ public class LevelTextScript : MonoBehaviour {
 				"Make it through three rings and help him catch one shark to proceed";
 			guiText.fontSize = 80;
 		} else if (currentLev == 4){
-			guiText.text = "Level locked. Spin ring to an available level";
+			guiText.text = "Level locked - Spin ring to an available level";
 			guiText.fontSize = 100;
 		}
 
