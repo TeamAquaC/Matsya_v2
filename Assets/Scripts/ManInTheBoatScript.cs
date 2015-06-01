@@ -32,11 +32,11 @@ public class ManInTheBoatScript : MonoBehaviour
 
 		if (!gameOver) 
 		{
-			//if health is 0 let the man die
-			if (health <= 0.0f) {
+			//if health is 0 let the man die, but not if the level is won.
+			if (health <= 0.0f && game.particleSpawned == false) {
 				health = 0f;
 				ManInTheBoatIsDead ();
-			} else if (health >= 100.0f) {
+			} else if (health >= 100.0f && game.particleSpawned == false) {
 				health = 0f;
 				ManInTheBoatIsFat ();
 			}

@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour {
 
 	public AudioClip menuMusic;
 	public AudioClip inGameMusic;
+	public AudioClip winLevelMusic;
 
 	private AudioSource audioSource;
 
@@ -24,6 +25,8 @@ public class AudioManager : MonoBehaviour {
 
 		menuMusic = Resources.Load ("Sound/Music/Cryptic") as AudioClip;
 		inGameMusic = Resources.Load ("Sound/Music/DistantWaters") as AudioClip;
+		winLevelMusic = Resources.Load ("Sound/Music/JustGrace_Clipped") as AudioClip;
+
 		audioSource.Play ();
 
 		FadeAudio (menuMusic);
@@ -87,7 +90,7 @@ public class AudioManager : MonoBehaviour {
 		if (_fadeToThisAudioClip != audioSource.clip) {
 			newClip = _fadeToThisAudioClip;
 			turnVolumeDown = true;
-			volumeGoal = 0f;
+			volumeGoal = 0.0f;
 		} else {
 //			Debug.Log("Clips are the same.");
 		}

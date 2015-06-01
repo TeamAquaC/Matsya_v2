@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour {
 	public int AngelDeadFishVal;
 	public int SharkDeadFishVal;
 	private bool gameOver = false;
+	public float endLevelTime;
+	public bool levelWon;
+	public bool particleSpawned;
+	public GameObject endParticle;
+
 	ManInTheBoatScript man;
 	RingManagerScript ring;
 	// Use this for initialization
@@ -103,7 +108,9 @@ public class GameManager : MonoBehaviour {
 
 	void Start()
 	{
-
+		endLevelTime = 0.0f;
+		levelWon = false;
+		particleSpawned = false;
 
 		AnyDeadFishVal = 0;
 		TunaDeadFishVal = 0;
@@ -115,94 +122,244 @@ public class GameManager : MonoBehaviour {
 	{
 		if (AnyDeadFishVal >= 3 && currentLevel == 1) 
 		{
+			if (particleSpawned == false)
+			{
+				GameObject particleInstance = endParticle;
+				GameObject partInst = Instantiate (particleInstance, new Vector3 (0 , 0, -10), particleInstance.transform.rotation) as GameObject;
+
+				particleSpawned = true;
+			}
+
+			if (endLevelTime > 3.0 & levelWon == false)
+			{
 			StartCoroutine (StoryWheelSuccess ());
+
 			AnyDeadFishVal=0;
 			TunaDeadFishVal = 0;
 			AngelDeadFishVal = 0;
 			SharkDeadFishVal = 0;
+
+			levelWon = true;
+			}
 			MasterGameManager.LevelCompleted(1);
+			endLevelTime += Time.deltaTime;
 		}
-		if (currentLevel==2 && AngelDeadFishVal == 3)
+		if (currentLevel==2 && AngelDeadFishVal  == 3)
 		{
-			StartCoroutine (StoryWheelSuccess ());
-			AnyDeadFishVal = 0;
-			TunaDeadFishVal = 0;
-			AngelDeadFishVal = 0;
-			SharkDeadFishVal = 0;
+			if (particleSpawned = false)
+			{
+				GameObject particleInstance = endParticle;
+				GameObject partInst = Instantiate (particleInstance, new Vector3 (0 , -0, -10), particleInstance.transform.rotation) as GameObject;
+				
+				particleSpawned = true;
+			}
+			
+			if (endLevelTime > 3.0 & levelWon == false)
+			{
+				StartCoroutine (StoryWheelSuccess ());
+				
+				AnyDeadFishVal=0;
+				TunaDeadFishVal = 0;
+				AngelDeadFishVal = 0;
+				SharkDeadFishVal = 0;
+				
+				levelWon = true;
+			}
 			MasterGameManager.LevelCompleted(2);
+			endLevelTime += Time.deltaTime;
 
 		}
 		if (currentLevel == 3 && man.health <= 50.0f) 
 		{
-			StartCoroutine (StoryWheelSuccess ());
-			AnyDeadFishVal = 0;
-			TunaDeadFishVal = 0;
-			AngelDeadFishVal = 0;
-			SharkDeadFishVal = 0;
+			if (particleSpawned = false)
+			{
+				GameObject particleInstance = endParticle;
+				GameObject partInst = Instantiate (particleInstance, new Vector3 (0 , -0, -10), particleInstance.transform.rotation) as GameObject;
+				
+				particleSpawned = true;
+			}
+			
+			if (endLevelTime > 3.0 & levelWon == false)
+			{
+				StartCoroutine (StoryWheelSuccess ());
+				
+				AnyDeadFishVal=0;
+				TunaDeadFishVal = 0;
+				AngelDeadFishVal = 0;
+				SharkDeadFishVal = 0;
+				
+				levelWon = true;
+			}
 			MasterGameManager.LevelCompleted(3);
+			endLevelTime += Time.deltaTime;
 	    }
 		if (currentLevel == 4 && SharkDeadFishVal >= 1 && ring.destroyedRings >= 3)
 		{
-			StartCoroutine (StoryWheelSuccess ());
-			AnyDeadFishVal = 0;
-			TunaDeadFishVal = 0;
-			AngelDeadFishVal = 0;
-			SharkDeadFishVal = 0;
+			if (particleSpawned = false)
+			{
+				GameObject particleInstance = endParticle;
+				GameObject partInst = Instantiate (particleInstance, new Vector3 (0 , -0, -10), particleInstance.transform.rotation) as GameObject;
+				
+				particleSpawned = true;
+			}
+			
+			if (endLevelTime > 3.0 & levelWon == false)
+			{
+				StartCoroutine (StoryWheelSuccess ());
+				
+				AnyDeadFishVal=0;
+				TunaDeadFishVal = 0;
+				AngelDeadFishVal = 0;
+				SharkDeadFishVal = 0;
+				
+				levelWon = true;
+			}
 			MasterGameManager.LevelCompleted(4);
+			endLevelTime += Time.deltaTime;
 		}
 		if (currentLevel == 5 && ring.destroyedRings >= 5)
 		{
-			StartCoroutine (StoryWheelSuccess ());
-			AnyDeadFishVal = 0;
-			TunaDeadFishVal = 0;
-			AngelDeadFishVal = 0;
-			SharkDeadFishVal = 0;
+			if (particleSpawned = false)
+			{
+				GameObject particleInstance = endParticle;
+				GameObject partInst = Instantiate (particleInstance, new Vector3 (0 , -0, -10), particleInstance.transform.rotation) as GameObject;
+				
+				particleSpawned = true;
+			}
+			
+			if (endLevelTime > 3.0 & levelWon == false)
+			{
+				StartCoroutine (StoryWheelSuccess ());
+				
+				AnyDeadFishVal=0;
+				TunaDeadFishVal = 0;
+				AngelDeadFishVal = 0;
+				SharkDeadFishVal = 0;
+				
+				levelWon = true;
+			}
 			MasterGameManager.LevelCompleted(5);
+			endLevelTime += Time.deltaTime;
 		}
 		if (currentLevel == 6 && SharkDeadFishVal>=3)
 		{
-			StartCoroutine (StoryWheelSuccess ());
-			AnyDeadFishVal = 0;
-			TunaDeadFishVal = 0;
-			AngelDeadFishVal = 0;
-			SharkDeadFishVal = 0;
+			if (particleSpawned = false)
+			{
+				GameObject particleInstance = endParticle;
+				GameObject partInst = Instantiate (particleInstance, new Vector3 (0 , -0, -10), particleInstance.transform.rotation) as GameObject;
+				
+				particleSpawned = true;
+			}
+			
+			if (endLevelTime > 3.0 & levelWon == false)
+			{
+				StartCoroutine (StoryWheelSuccess ());
+				
+				AnyDeadFishVal=0;
+				TunaDeadFishVal = 0;
+				AngelDeadFishVal = 0;
+				SharkDeadFishVal = 0;
+				
+				levelWon = true;
+			}
 			MasterGameManager.LevelCompleted(6);
+			endLevelTime += Time.deltaTime;
 		}
 		if (currentLevel == 7 && TunaDeadFishVal>=3)
 		{
-			StartCoroutine (StoryWheelSuccess ());
-			AnyDeadFishVal = 0;
-			TunaDeadFishVal = 0;
-			AngelDeadFishVal = 0;
-			SharkDeadFishVal = 0;
+			if (particleSpawned = false)
+			{
+				GameObject particleInstance = endParticle;
+				GameObject partInst = Instantiate (particleInstance, new Vector3 (0 , -0, -10), particleInstance.transform.rotation) as GameObject;
+				
+				particleSpawned = true;
+			}
+			
+			if (endLevelTime > 3.0 & levelWon == false)
+			{
+				StartCoroutine (StoryWheelSuccess ());
+				
+				AnyDeadFishVal=0;
+				TunaDeadFishVal = 0;
+				AngelDeadFishVal = 0;
+				SharkDeadFishVal = 0;
+				
+				levelWon = true;
+			}
 			MasterGameManager.LevelCompleted(7);
+			endLevelTime += Time.deltaTime;
 		}
 		if (currentLevel == 8 && TunaDeadFishVal>=3)
 		{
-			StartCoroutine (StoryWheelSuccess ());
-			AnyDeadFishVal = 0;
-			TunaDeadFishVal = 0;
-			AngelDeadFishVal = 0;
-			SharkDeadFishVal = 0;
+			if (particleSpawned = false)
+			{
+				GameObject particleInstance = endParticle;
+				GameObject partInst = Instantiate (particleInstance, new Vector3 (0 , -0, -10), particleInstance.transform.rotation) as GameObject;
+				
+				particleSpawned = true;
+			}
+			
+			if (endLevelTime > 3.0 & levelWon == false)
+			{
+				StartCoroutine (StoryWheelSuccess ());
+				
+				AnyDeadFishVal=0;
+				TunaDeadFishVal = 0;
+				AngelDeadFishVal = 0;
+				SharkDeadFishVal = 0;
+				
+				levelWon = true;
+			}
 			MasterGameManager.LevelCompleted(8);
+			endLevelTime += Time.deltaTime;
 		}
 		if (currentLevel == 9 && ring.destroyedRings>=5)
 		{
-			StartCoroutine (StoryWheelSuccess ());
-			AnyDeadFishVal = 0;
-			TunaDeadFishVal = 0;
-			AngelDeadFishVal = 0;
-			SharkDeadFishVal = 0;
+			if (particleSpawned = false)
+			{
+				GameObject particleInstance = endParticle;
+				GameObject partInst = Instantiate (particleInstance, new Vector3 (0 , -0, -10), particleInstance.transform.rotation) as GameObject;
+				
+				particleSpawned = true;
+			}
+			
+			if (endLevelTime > 3.0 & levelWon == false)
+			{
+				StartCoroutine (StoryWheelSuccess ());
+				
+				AnyDeadFishVal=0;
+				TunaDeadFishVal = 0;
+				AngelDeadFishVal = 0;
+				SharkDeadFishVal = 0;
+				
+				levelWon = true;
+			}
 			MasterGameManager.LevelCompleted(9);
+			endLevelTime += Time.deltaTime;
 		}
 		if (currentLevel == 10 && ring.destroyedRings>=10)
 		{
-			StartCoroutine (StoryWheelSuccess ());
-			AnyDeadFishVal = 0;
-			TunaDeadFishVal = 0;
-			AngelDeadFishVal = 0;
-			SharkDeadFishVal = 0;
+			if (particleSpawned = false)
+			{
+				GameObject particleInstance = endParticle;
+				GameObject partInst = Instantiate (particleInstance, new Vector3 (0 , 0, -10), particleInstance.transform.rotation) as GameObject;
+				
+				particleSpawned = true;
+			}
+			
+			if (endLevelTime > 3.0 & levelWon == false)
+			{
+				StartCoroutine (StoryWheelSuccess ());
+				
+				AnyDeadFishVal=0;
+				TunaDeadFishVal = 0;
+				AngelDeadFishVal = 0;
+				SharkDeadFishVal = 0;
+				
+				levelWon = true;
+			}
 			MasterGameManager.LevelCompleted(10);
+			endLevelTime += Time.deltaTime;
 		}
 		//Cheat function to end level successfully.
 		if(Input.GetKey(KeyCode.C)){
