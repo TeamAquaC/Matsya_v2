@@ -82,6 +82,33 @@ public class AudioManager : MonoBehaviour {
 		case 3:
 			FadeAudio(inGameMusic);
 			break;
+		case 4:
+			FadeAudio(inGameMusic);
+			break;
+		case 5:
+			FadeAudio(inGameMusic);
+			break;
+		case 6:
+			FadeAudio(inGameMusic);
+			break;
+		case 7:
+			FadeAudio(inGameMusic);
+			break;
+		case 8:
+			FadeAudio(inGameMusic);
+			break;
+		case 9:
+			FadeAudio(inGameMusic);
+			break;
+		case 10:
+			FadeAudio(inGameMusic);
+			break;
+		case 11:
+			FadeAudio(inGameMusic);
+			break;
+		case 12:
+			FadeAudio(inGameMusic);
+			break;
 		}
 	}
 
