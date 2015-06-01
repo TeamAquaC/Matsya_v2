@@ -3,8 +3,6 @@ using System.Collections;
 
 public class ManInTheBoatScript : MonoBehaviour 
 {
-
-
 	public float health;
 	private float timer = 0f;
 
@@ -18,6 +16,7 @@ public class ManInTheBoatScript : MonoBehaviour
 	GameManager game;
 	void Awake()
 	{
+
 		healthBarText = gameObject.GetComponent<TextMesh>();
 		game = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 	}

@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
 	public bool levelWon;
 	public bool particleSpawned;
 	public GameObject endParticle;
+	public AudioClip winMusic;
+	private AudioSource audioSource;
 
 	ManInTheBoatScript man;
 	RingManagerScript ring;
@@ -108,6 +110,7 @@ public class GameManager : MonoBehaviour {
 
 	void Start()
 	{
+		audioSource = gameObject.GetComponent<AudioSource> ();
 		endLevelTime = 0.0f;
 		levelWon = false;
 		particleSpawned = false;
@@ -126,6 +129,8 @@ public class GameManager : MonoBehaviour {
 			{
 				GameObject particleInstance = endParticle;
 				GameObject partInst = Instantiate (particleInstance, new Vector3 (0 , 0, -10), particleInstance.transform.rotation) as GameObject;
+
+				audioSource.PlayOneShot(winMusic);
 
 				particleSpawned = true;
 			}
