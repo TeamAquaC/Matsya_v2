@@ -25,7 +25,6 @@ public class AudioManager : MonoBehaviour {
 
 		menuMusic = Resources.Load ("Sound/Music/Cryptic") as AudioClip;
 		inGameMusic = Resources.Load ("Sound/Music/DistantWaters") as AudioClip;
-		winLevelMusic = Resources.Load ("Sound/Music/JustGrace_Clipped") as AudioClip;
 
 		audioSource.Play ();
 
@@ -61,7 +60,7 @@ public class AudioManager : MonoBehaviour {
 			if(audioSource.volume > volumeGoal - 0.1f)
 				turnVolumeUp = false;
 		}
-//		Debug.Log ("Volume: " + audioSource.volume + " IsPlaying:" + audioSource.isPlaying);
+
 	}
 
 	void OnLevelWasLoaded(int _level) 
