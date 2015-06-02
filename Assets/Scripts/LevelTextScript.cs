@@ -41,22 +41,22 @@ public class LevelTextScript : MonoBehaviour {
 		
 		if (currentLev == 3 && MasterGameManager.Levels [2].unlocked) {
 			guiText.text = "He’s overfished and is attracting more and more sharks - Don't let any more fish be caught!";
-			guiText.fontSize = 100;
+			guiText.fontSize = 90;
 		} else if (currentLev == 3){
 			guiText.text = "Level locked - Spin ring to an available level";
 			guiText.fontSize = 100;
 		}
 
 		if (currentLev == 4 && MasterGameManager.Levels [3].unlocked) {
-			guiText.text = "Clear the inner ring by catching all the fish within that ring. Get through three and catch a shark";
-			guiText.fontSize = 80;
+			guiText.text = "Clear the inner ring by catching all the fish within that ring. Get through two and catch a shark";
+			guiText.fontSize = 90;
 		} else if (currentLev == 4){
 			guiText.text = "Level locked - Spin ring to an available level";
 			guiText.fontSize = 100;
 		}
 
 		if (currentLev == 5 && MasterGameManager.Levels [4].unlocked) {
-			guiText.text = "Now that he knows how to fish, help him progress through five rings";
+			guiText.text = "Now that he knows how to fish, help him progress through four rings";
 			guiText.fontSize = 100;
 		} else if (currentLev == 5){
 			guiText.text = "Level locked - Spin ring to an available level";
@@ -73,14 +73,14 @@ public class LevelTextScript : MonoBehaviour {
 
 		if (currentLev == 7 && MasterGameManager.Levels [6].unlocked) {
 			guiText.text = "Help him catch three of the small fish that are in the outermost ring";
-			guiText.fontSize = 80;
+			guiText.fontSize = 100;
 		} else if (currentLev == 7){
 			guiText.text = "Level locked - Spin ring to an available level";
 			guiText.fontSize = 100;
 		}
 
 		if (currentLev == 8 && MasterGameManager.Levels [7].unlocked) {
-			guiText.text = "The waters have gotten faster, keep all of the fish alive until the small one comes";
+			guiText.text = "The waters have gotten faster, help him catch 5 of the small fish spawning in the outer rings";
 			guiText.fontSize = 100;
 		} else if (currentLev == 8){
 			guiText.text = "Level locked - Spin ring to an available level";
@@ -88,7 +88,7 @@ public class LevelTextScript : MonoBehaviour {
 		}
 
 		if (currentLev == 9 && MasterGameManager.Levels [8].unlocked) {
-			guiText.text = "Can you help him progress through five rings? Be careful, the waters have gotten faster!";
+			guiText.text = "Can you help him progress through four rings? Be careful, the waters have gotten faster!";
 			guiText.fontSize = 90;
 		} else if (currentLev == 9){
 			guiText.text = "Level locked - Spin ring to an available level";
@@ -96,7 +96,7 @@ public class LevelTextScript : MonoBehaviour {
 		}
 
 		if (currentLev == 10 && MasterGameManager.Levels [9].unlocked) {
-			guiText.text = "Now try to get through ten rings! Beware, the waters are even faster!";
+			guiText.text = "Now try to get through eight rings! Beware, the waters are even faster!";
 			guiText.fontSize = 100;
 		} else if (currentLev == 10){
 			guiText.text = "Level locked - Spin ring to an available level";

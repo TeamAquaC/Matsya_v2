@@ -21,4 +21,17 @@ public class ButtonHandler : MonoBehaviour
 	{
 		MasterGameManager.ResetPlayerStats ();
 	}
+
+	public void ZenModeEngaged()
+	{
+		StartCoroutine (LoadZenMode());
+	}
+
+	IEnumerator LoadZenMode()
+	{
+		float fadeTime = GameObject.Find ("Main Camera").GetComponent<SceneFading> ().BeginFade (1);
+		Debug.Log ("FadingTime: " + fadeTime);
+		yield return new WaitForSeconds(fadeTime);
+		Application.LoadLevel ("ZenMode");
+	}
 }
