@@ -26,7 +26,6 @@ public class MasterGameManager : MonoBehaviour
 
 //		currentLevel = 1;
 
-
 		//set up the level array (which level can we play/access which not)
 		SetUpLevels	();
 	}
@@ -56,7 +55,9 @@ public class MasterGameManager : MonoBehaviour
 	//call this function to unlock the next higher level on the wheel
 	public static void LevelCompleted(int _levelNumber)
 	{
-		currentLevel = _levelNumber + 1 ;
+		currentLevel = _levelNumber + 1;
+		if(currentLevel > 10)
+			currentLevel = 10;
 		SavePlayerStats ();
 
 		//set finished level to completed
