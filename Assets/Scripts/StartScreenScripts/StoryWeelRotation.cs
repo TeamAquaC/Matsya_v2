@@ -68,7 +68,7 @@ public class StoryWeelRotation : MonoBehaviour
 				StartLerp();
 			}
 
-			float applyRotation = Mathf.LerpAngle(transform.eulerAngles.z, rotationGoal, Time.deltaTime * 2f);
+			float applyRotation = Mathf.LerpAngle(transform.eulerAngles.z, rotationGoal, Time.deltaTime * 20f);
 			transform.eulerAngles = new Vector3(0f,0f, applyRotation);
 		}
 //		Debug.Log("RotationGoal" + rotationGoal+ "current rot: "+ transform.eulerAngles.z * Mathf.Rad2Deg);
